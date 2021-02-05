@@ -6,7 +6,7 @@ description: Provides a list of ATA events IDs and their descriptions.
 keywords:
 author: shsagir
 ms.author: shsagir
-manager: rkarlin
+manager: shsagir
 ms.date: 12/20/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -29,13 +29,13 @@ ms.suite: ems
 # ATA event ID reference
 
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 The ATA Center event viewer logs events for ATA. This article provides a list of event IDs and provides a description of each.
 
 The events can be found here:
 
-![event ID location](./media/event-id-location.png)
+![event ID location](media/event-id-location.png)
 
 ## ATA health events
 

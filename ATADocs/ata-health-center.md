@@ -4,9 +4,9 @@
 title: Monitor Advanced Threat Analytics System Health and Events
 description: Use the ATA Health Center to check how the ATA service is working and be alerted to potential problems and view system events in the Event viewer.
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,7 +27,7 @@ ms.suite: ems
 
 # Working with ATA system health and events
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 ## ATA Health Center
 
@@ -41,7 +41,7 @@ The ATA Health Center lets you know that there's a problem by raising an alert (
 ### Managing ATA health
 To check up on your system's overall health, click the Health Center icon in the menu bar ![ATA Health Center icon](media/ATA-red-dot.png)
 
--   All open alerts can be managed by setting them to **Close**, **Suppress**, or **Delete** by clicking the three dots in the corner of the alert and making your selection.
+- All open alerts can be managed by setting them to **Close**, **Suppress**, or **Delete** by clicking the three dots in the corner of the alert and making your selection.
 
 -   **Open**: All new suspicious activities appear in this list.
 

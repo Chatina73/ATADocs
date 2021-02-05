@@ -4,9 +4,9 @@
 title: Troubleshooting Advanced Threat Analytics using the logs
 description: Describes how you can use the ATA logs to troubleshoot issues
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 8/27/2019
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,7 +27,7 @@ ms.suite: ems
 
 # Troubleshooting ATA using the ATA logs
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 The ATA logs provide insight into what each component of ATA is doing at any given point in time.
 
@@ -46,9 +46,9 @@ The ATA Gateway has the following logs:
 
 -   **Microsoft.Tri.Gateway-ExceptionStatistics.log** – This log groups all similar errors and exceptions, and measures their count.
     This file starts out  empty each time the ATA Gateway service starts and is updated every minute. Its main use is understanding if there are any new errors or issues with the ATA Gateway (because the errors are grouped it is easier to read and quickly understand if there are any new issues).
--	**Microsoft.Tri.Gateway.Updater.log** - This log is used for the gateway updater process, which is responsible for updating the ATA Gateway if configured to do so automatically. 
+- **Microsoft.Tri.Gateway.Updater.log** - This log is used for the gateway updater process, which is responsible for updating the ATA Gateway if configured to do so automatically. 
 For the ATA Lightweight Gateway, the gateway updater process is also responsible  for the resource limitations of the ATA Lightweight Gateway.
--	**Microsoft.Tri.Gateway.Updater-ExceptionStatistics.log** - This log groups all similar errors and exceptions together, and measures their count. This file starts out empty each time the ATA Updater service starts and is updated every minute. It enables you to understand if there are any new errors or issues with the ATA Updater. The errors are grouped to make it easier to quickly understand if any new errors or issues are detected.
+- **Microsoft.Tri.Gateway.Updater-ExceptionStatistics.log** - This log groups all similar errors and exceptions together, and measures their count. This file starts out empty each time the ATA Updater service starts and is updated every minute. It enables you to understand if there are any new errors or issues with the ATA Updater. The errors are grouped to make it easier to quickly understand if any new errors or issues are detected.
 
 > [!NOTE]
 > The first three log files have a maximum size of up to 50 MB. When that size is reached, a new log file is opened and the previous one is renamed to "&lt;original file name&gt;-Archived-00000" where the number increments each time it is renamed. By default, if more than 10 files from the same type already exist, the oldest are deleted.

@@ -4,9 +4,9 @@
 title: Troubleshooting Advanced Threat Analytics using the database
 description: Describes how you can use the ATA database to help troubleshoot issues 
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,7 +27,7 @@ ms.suite: ems
 
 # Troubleshooting ATA using the ATA database
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 ATA uses MongoDB as its database.
 You can interact with the database using the default command line or using a user interface tool to perform advanced tasks and troubleshooting.
@@ -35,9 +35,9 @@ You can interact with the database using the default command line or using a use
 ## Interacting with the database
 The default and most basic way to query the database is using the Mongo shell:
 
-1.  Open a command-line window and change the path to the MongoDB bin folder. The default path is: **C:\Program Files\Microsoft Advanced Threat Analytics\Center\MongoDB\bin**.
+1. Open a command-line window and change the path to the MongoDB bin folder. The default path is: **C:\Program Files\Microsoft Advanced Threat Analytics\Center\MongoDB\bin**.
 
-2.  Run: `mongo.exe ATA`. Make sure to type ATA with all capital letters.
+1. Run: `mongo.exe ATA`. Make sure to type ATA with all capital letters.
 
 > [!div class="mx-tableFixed"]
 > 

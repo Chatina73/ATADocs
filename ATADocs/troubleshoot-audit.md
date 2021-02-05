@@ -4,9 +4,9 @@
 title: Working with ATA audit logs
 description: This article describes how to work with ATA audit logs in the Windows Event Log.
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -28,18 +28,18 @@ ms.suite: ems
 # Working with ATA audit logs
 
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 The ATA audit logs are kept in the Windows Event Logs under **Applications and Services** and then **Microsoft ATA** both on the ATA Center and ATA Gateway machines.
 
 The ATA Center audit log contains:
--	Suspicious activity information
--	Health alerts (health page)
--	ATA Console logins
--	All configuration changes*
+- Suspicious activity information
+- Health alerts (health page)
+- ATA Console logins
+- All configuration changes*
 
 The ATA Gateway audit log contains:
--	Gateway configuration changes* 
+- Gateway configuration changes* 
 
 (All ATA Gateway configuration changes are configured on the ATA Center but are still audited on the Gateway machine itself.)
 

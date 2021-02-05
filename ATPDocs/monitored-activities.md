@@ -1,45 +1,26 @@
 ---
-# required metadata
-
-title: Azure ATP monitored domain activities
-description: Describes each activity type monitored by Azure Advanced Threat Protection
-keywords:
-author: shsagir
-ms.author: shsagir
-manager: rkarlin
-ms.date: 03/19/2020
+title: Microsoft Defender for Identity monitored domain activities
+description: Describes each activity type monitored by Microsoft Defender for Identity
+ms.date: 12/24/2020
 ms.topic: conceptual
-ms.collection: M365-security-compliance
-ms.service: azure-advanced-threat-protection
-ms.assetid: 37d1a032-65e7-4a89-be0b-c3f9cc2bacdb
-
-# optional metadata
-
-#ROBOTS:
-#audience:
-#ms.devlang:
-ms.reviewer: itargoet
-ms.suite: ems
-#ms.tgt_pltfrm:
-#ms.custom:
-
 ---
 
-# Azure ATP monitored activities
+# [!INCLUDE [Product long](includes/product-long.md)] monitored activities
 
 > [!NOTE]
-> The Azure ATP features explained on this page are also accessible using the new [portal](https://portal.cloudappsecurity.com).
+> The [!INCLUDE [Product long](includes/product-long.md)] features explained on this page are also accessible using the new [portal](https://portal.cloudappsecurity.com).
 
-Azure Advanced Threat Protection monitors information generated from your organization's Active Directory, network activities and event activities to detect suspicious activity. The monitored activity information enables Azure ATP to help you determine the validity of each potential threat and correctly triage and respond.
+[!INCLUDE [Product long](includes/product-long.md)] monitors information generated from your organization's Active Directory, network activities and event activities to detect suspicious activity. The monitored activity information enables [!INCLUDE [Product short](includes/product-short.md)] to help you determine the validity of each potential threat and correctly triage and respond.
 
-In the case of a valid threat, or **true positive**, Azure ATP enables you to discover the scope of breach for each incident, investigate which entities are involved, and determine how to remediate them.
+In the case of a valid threat, or **true positive**, [!INCLUDE [Product short](includes/product-short.md)] enables you to discover the scope of the breach for each incident, investigate which entities are involved, and determine how to remediate them.
 
-The information monitored by Azure ATP is presented in the form of activities. Azure ATP currently supports monitoring of the following activity types:
+The information monitored by [!INCLUDE [Product short](includes/product-short.md)] is presented in the form of activities. [!INCLUDE [Product short](includes/product-short.md)] currently supports monitoring of the following activity types:
 
 > [!NOTE]
 >
-> - This article is relevant for all Azure ATP sensor types.
-> - Azure ATP monitored activities appear on both the user and machine profile page.
+> - This article is relevant for all [!INCLUDE [Product short](includes/product-short.md)] sensor types.
+> - [!INCLUDE [Product short](includes/product-short.md)] monitored activities appear on both the user and machine profile page.
+> - [!INCLUDE [Product short](includes/product-short.md)] monitored activities are also available in [Cloud App Security](https://portal.cloudappsecurity.com/) and Microsoft 365 Defender's [Advanced Hunting](https://security.microsoft.com/advanced-hunting) page.
 
 ## Monitored user activities: User account AD attribute changes
 
@@ -57,7 +38,7 @@ The information monitored by Azure ATP is presented in the form of activities. A
 |Account Password Not Required Changed|User account was changed allow logging in with a blank password.|
 |Account Smartcard Required Changed|Account changes to require users to log on to a device using a smart card.|
 |Account Supported Encryption Types Changed|Kerberos supported encryption types were changed (types: Des, AES 129, AES 256)|
-|Account Upn Name Changed|User's principle name was changed.|
+|Account UPN Name Changed|User's principle name was changed.|
 |Group Membership Changed|User was added/removed, to/from a group, by another user or by themselves.|
 |User Mail Changed|Users email attribute was changed.|
 |User Manager Changed|User's manager attribute was changed.|
@@ -83,7 +64,7 @@ The information monitored by Azure ATP is presented in the form of activities. A
 
 |Monitored activity|Description|
 |---------------------|------------------|
-|Directory Service Replication|Used tried to replicate the directory service.|
+|Directory Service Replication|User tried to replicate the directory service.|
 |DNS Query|Type of query user performed against the domain controller (**AXFR**,**TXT**, **MX**, **NS**, **SRV**, **ANY**, **DNSKEY**).|
 |Private Data Retrieval|User attempted/succeeded to query private data using LSARPC protocol.|
 |Service Creation|User attempted to remotely create a specific service to a remote machine.|
@@ -119,4 +100,4 @@ The information monitored by Azure ATP is presented in the form of activities. A
 - [Managing security alerts](working-with-suspicious-activities.md)
 - [Security alert guide](suspicious-activity-guide.md)
 - [Investigate entities](investigate-entity.md)
-- [Check out the Azure ATP forum!](https://aka.ms/azureatpcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)

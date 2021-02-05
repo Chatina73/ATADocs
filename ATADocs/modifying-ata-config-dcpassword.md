@@ -4,9 +4,9 @@
 title: Change Advanced Threat Analytics config - domain connectivity password
 description: Describes how to change the Domain Connectivity Password on the ATA Gateway.
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,7 +27,7 @@ ms.suite: ems
 
 # Change ATA configuration - domain connectivity password
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 ## Change the domain connectivity password
 
@@ -38,23 +38,23 @@ If you suspect that this happened, on the ATA Gateway, look at the Microsoft.Tri
 
 To correct this, follow this procedure to update the Domain Connectivity password on the ATA Center:
 
-1.  Open the ATA Console on the ATA Center.
+1. Open the ATA Console on the ATA Center.
 
-2.  Select the settings option on the toolbar and select **Configuration**.
+1. Select the settings option on the toolbar and select **Configuration**.
 
     ![ATA configuration settings icon](media/ATA-config-icon.png)
 
-3.  Select **Directory Services**.
+1. Select **Directory Services**.
 
     ![ATA Gateway change password image](media/ATA-GW-change-DC-password.png)
 
-4.  Under **Password**, change the password.
+1. Under **Password**, change the password.
 
     If the ATA Center has connectivity to the domain, use the **Test Connection** button to validate the credentials
 
-5.  Click **Save**.
+1. Click **Save**.
 
-6.  After changing the password, manually check that the ATA Gateway service is running on the ATA Gateway servers.
+1. After changing the password, manually check that the ATA Gateway service is running on the ATA Gateway servers.
 
 
 

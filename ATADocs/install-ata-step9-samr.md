@@ -6,7 +6,7 @@ description: Describes how to configure SAM-R to enable lateral movement path de
 keywords:
 author: shsagir
 ms.author: shsagir
-manager: rkarlin
+manager: shsagir
 ms.date: 09/08/2019
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -28,7 +28,7 @@ ms.suite: ems
 
 # Install ATA - Step 9
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 > [!div class="step-by-step"]
 > [« Step 8](install-ata-step7.md)
@@ -47,15 +47,15 @@ To ensure that Windows clients and servers allow the ATA service account to perf
    - Policy Name: Network access - Restrict clients allowed to make remote calls to SAM
    - Location: Computer configuration, Windows settings, Security settings, Local policies, Security options
   
-   ![Locate the policy](./media/samr-policy-location.png)
+    ![Locate the policy](media/samr-policy-location.png)
 
-2. Add the ATA service to the list of approved accounts able to perform this action on your modern Windows systems.
+1. Add the ATA service to the list of approved accounts able to perform this action on your modern Windows systems.
  
-   ![Add the service](./media/samr-add-service.png)
+    ![Add the service](media/samr-add-service.png)
 
-3. The **ATA Service** (the ATA service created during installation) now has the proper privileges to perform SAM-R in the environment.
+1. The **ATA Service** (the ATA service created during installation) now has the proper privileges to perform SAM-R in the environment.
 
- For more information on SAM-R and Group Policy, see [Network access: Restrict clients allowed to make remote calls to SAM](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-access-restrict-clients-allowed-to-make-remote-sam-calls).
+ For more information on SAM-R and Group Policy, see [Network access: Restrict clients allowed to make remote calls to SAM](/windows/security/threat-protection/security-policy-settings/network-access-restrict-clients-allowed-to-make-remote-sam-calls).
 
 
 > [!div class="step-by-step"]

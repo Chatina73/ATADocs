@@ -6,7 +6,7 @@ description: Provides links to information about how to delete private informati
 keywords:
 author: shsagir
 ms.author: shsagir
-manager: rkarlin
+manager: shsagir
 ms.date: 9/27/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,7 +27,7 @@ ms.suite: ems
 
 # ATA data security and privacy
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 [!INCLUDE [Handle personal data](../includes/gdpr-intro-sentence.md)]
 
@@ -43,13 +43,13 @@ Personal data about users and entities in ATA is derived from the user's object 
 
 ## Deleting personal data 
 
-Although data in ATA is replicated and always updated from AD, when an entity is deleted in AD, the entity’s data in ATA is maintained for purposes of security investigation. 
+Although data in ATA is replicated and always updated from AD, when an entity is deleted in AD, the entity's data in ATA is maintained for purposes of security investigation. 
 
 To permanently delete user-related data from the ATA database, follow this procedure: 
 
 1. [Download](https://aka.ms/ata-gdpr-script) the MongoDB script (gdpr.js).  
 
-2. Copy the script into the ATA folder (located at `"C:\Program Files\Microsoft Advanced Threat Analytics\Center\MongoDB` and run the following command from the ATA Center machine: 
+1. Copy the script into the ATA folder (located at `"C:\Program Files\Microsoft Advanced Threat Analytics\Center\MongoDB` and run the following command from the ATA Center machine: 
 
 Use the ATA GDPR database script to delete entities and delete entity activity data, as described in the following sections.
 
@@ -89,8 +89,8 @@ For more information, see [Manage system-generated logs](manage-telemetry-settin
 To disable data collection:
 
 1. Log in to the ATA Console, click the three dots in the toolbar and select **About**. 
-2. Uncheck the box for **Send us usage information to help improve your customer experience in the future**. 
+1. Uncheck the box for **Send us usage information to help improve your customer experience in the future**. 
 
 ## Additional resources
 
-- For information about ATA trust and compliance, see the [Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted) and the [Microsoft 365 Enterprise GDPR Compliance site](https://docs.microsoft.com/microsoft-365/compliance/compliance-solutions-overview).
+- For information about ATA trust and compliance, see the [Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted) and the [Microsoft 365 Enterprise GDPR Compliance site](/microsoft-365/compliance/gdpr).

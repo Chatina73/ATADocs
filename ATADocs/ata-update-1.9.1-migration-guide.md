@@ -6,7 +6,7 @@ description: Procedure to update ATA to version 1.9.1
 keywords:
 author: shsagir
 ms.author: shsagir
-manager: rkarlin
+manager: shsagir
 ms.date: 12/10/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -26,7 +26,6 @@ ms.suite: ems
 ---
 
 # ATA version 1.9.1
-
 
 This article describes issues fixed in Update 1 for Microsoft Advanced Threat Analytics (ATA) version 1.9. The build number of this update is 1.9.7412.
 

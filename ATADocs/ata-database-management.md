@@ -4,9 +4,9 @@
 title: Advanced Threat Analytics Database Management
 description: Procedures to help you move, backup, or restore the ATA database.
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,7 +27,7 @@ ms.suite: ems
 
 # ATA Database Management
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 If you need to move, backup or restore the ATA database, use these procedures for working with MongoDB.
 
@@ -43,21 +43,21 @@ Refer to the [relevant MongoDB documentation](http://docs.mongodb.org/manual/adm
    > [!Important] 
    > Make sure the ATA Center service stopped before moving on to the next step.
 
-2. Stop the **MongoDB** service.
+1. Stop the **MongoDB** service.
 
-3. Open the Mongo configuration file located by default at: C:\Program Files\Microsoft Advanced Threat Analytics\Center\MongoDB\bin\mongod.cfg.
+1. Open the Mongo configuration file located by default at: C:\Program Files\Microsoft Advanced Threat Analytics\Center\MongoDB\bin\mongod.cfg.
 
    Find the parameter `storage: dbPath`
 
-4. Move the folder listed in the `dbPath` parameter to the new location.
+1. Move the folder listed in the `dbPath` parameter to the new location.
 
-5. Change the `dbPath` parameter inside the mongo configuration file to the new folder path and save and close the file.
+1. Change the `dbPath` parameter inside the mongo configuration file to the new folder path and save and close the file.
 
-   ![Modify MongoDB configuration image](media/ATA-mongoDB-moveDB.png)
+    ![Modify MongoDB configuration image](media/ATA-mongoDB-moveDB.png)
 
-6. Start the **MongoDB** service.
+1. Start the **MongoDB** service.
 
-7. Start the **Microsoft Advanced Threat Analytics Center** service.
+1. Start the **Microsoft Advanced Threat Analytics Center** service.
 
 ## See Also
 - [ATA architecture](ata-architecture.md)

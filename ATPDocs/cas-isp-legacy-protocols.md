@@ -1,0 +1,44 @@
+---
+title: Microsoft Defender for Identity legacy protocols identity security posture assessment
+description: This article provides an overview of Microsoft Defender for Identity's legacy protocol identification security posture assessment report.
+ms.date: 10/26/2020
+ms.topic: how-to
+---
+
+# Security assessment: Legacy protocols usage
+
+## What are legacy protocols?
+
+With all of the standard work enterprises perform to protect their infrastructure using patching and server hardening, one area that often remains overlooked is legacy protocol retirement. Without reducing legacy protocol exposure, credential theft remains relatively easy to accomplish.
+
+Most legacy protocols were drafted and created before today's security needs existed, and built before modern enterprise security requirements became clear. However, legacy protocols remain unchanged, and are easily transformed into vulnerable access points in every modern organization.
+
+## What risks do retained legacy protocols introduce?
+
+Modern cyber-attacks methods often make specific use of legacy protocols in their attack and often utilize them to target organizations that have yet to implement the proper mitigation.
+
+Attack Surface Reduction can be achieved by disabling support for insecure legacy protocols such as:
+
+- TLS 1.0 & 1.1 (As well as all versions of SSL)
+- Server Message Block v1 (SMBv1)
+- LanMan (LM) / NTLMv1
+- Digest Authentication
+
+To retire the use of legacy protocols, your organization must first discover which internal entities and applications rely on them. The **Legacy protocols usage** assessment report table surfaces the top discovered entities using legacy protocols (for now, NTLMv1). Using the report, you can immediately review any top impacted entities and take action on them, stopping use of these protocols and eventually, disabling them altogether. To learn more about the dangers of using legacy protocols, see [Stop using LAN manager and NTLMv1!](/archive/blogs/miriamxyra/stop-using-lan-manager-and-ntlmv1) and [Drop The MIC 2 & Exploiting LMv2 Clients](https://www.preempt.com/blog/active-directory-ntlm-attacks/).
+
+## How do I use this security assessment?
+
+1. Use the report table to discover which of your top discovered entities are using legacy protocols.
+
+    ![Prevent usage of legacy protocols](media/cas-isp-legacy-protocols-2.png)
+1. Take appropriate action on those entities to discover dependencies.
+1. Stop legacy protocol use and eventually, [disable the protocols completely](/archive/blogs/miriamxyra/stop-using-lan-manager-and-ntlmv1).
+1. [Drop the MIC 2 & stop using LMv2 Clients](https://www.preempt.com/blog/active-directory-ntlm-attacks/).
+
+> [!NOTE]
+> This assessment is updated in near real time.
+
+## Next steps
+
+- [[!INCLUDE [Product short](includes/product-short.md)] activities filtering in Cloud App Security](activities-filtering-mcas.md)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)

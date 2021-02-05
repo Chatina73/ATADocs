@@ -4,9 +4,9 @@
 title: Troubleshooting Advanced Threat Analytics service startup
 description: Describes how you can troubleshoot ATA startup issues
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,29 +27,31 @@ ms.suite: ems
 
 # Troubleshooting service startup
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 ## Troubleshooting ATA Center service startup
 
 If your ATA Center does not start, perform the following troubleshooting procedure:
 
-1.	Run the following Windows PowerShell command:
+1. Run the following Windows PowerShell command:
     `Get-Service Pla | Select Status`
 to make sure the Performance counter service is running. If it's not, then it's a platform issue, and you need to make sure you get this service running again.
-2.	If it was running, Try to restart it, and see if it resolves the issue:
+1. If it was running, Try to restart it, and see if it resolves the issue:
     `Restart-Service Pla`
-3.	Try to create a new data collector manually (any will suffice, even just collect machine CPU for example).
+1. Try to create a new data collector manually (any will suffice, even just collect machine CPU for example).
 If it can start, the platform is probably fine. If not, it is still a platform issue.
 
-4.	Try to manually recreate the ATA data collector, using an elevated prompt, running these commands:
+1. Try to manually recreate the ATA data collector, using an elevated prompt, running these commands:
 
-        sc stop ATACenter
-        logman stop "Microsoft ATA Center"
-        logman export "Microsoft ATA Center" -xml c:\center.xml
-        logman delete "Microsoft ATA Center"
-        logman import "Microsoft ATA Center" -xml c:\center.xml
-        logman start "Microsoft ATA Center"
-        sc start ATACenter
+```dos
+sc stop ATACenter
+logman stop "Microsoft ATA Center"
+logman export "Microsoft ATA Center" -xml c:\center.xml
+logman delete "Microsoft ATA Center"
+logman import "Microsoft ATA Center" -xml c:\center.xml
+logman start "Microsoft ATA Center"
+sc start ATACenter
+```
 
 ## Troubleshooting ATA Lightweight Gateway startup
 
@@ -65,13 +67,16 @@ This happens because as part of the Lightweight Gateway installation process, AT
 **Resolution**
 
 1. Under the registry keys, if there is a DWORD value called **Disable Performance Counters** make sure it is set to **0**:
-    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\`
-    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfProc\Performance`
- 
-2. Then restart the Pla service. The ATA Lightweight Gateway will automatically detect the change and restart the service.
 
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfProc\Performance
+```
+
+1. Then restart the Pla service. The ATA Lightweight Gateway will automatically detect the change and restart the service.
 
 ## See Also
+
 - [ATA prerequisites](ata-prerequisites.md)
 - [ATA capacity planning](ata-capacity-planning.md)
 - [Configure event collection](configure-event-collection.md)

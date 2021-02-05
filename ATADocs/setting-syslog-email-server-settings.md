@@ -4,9 +4,9 @@
 title: Setting email notification settings in Advanced Threat Analytics
 description: Describes how to have ATA notify you (by email or by ATA event forwarding) when it detects suspicious activities 
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,19 +27,19 @@ ms.suite: ems
 
 # Provide ATA with your email server settings
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 ATA can notify you when it detects a suspicious activity. For ATA to be able to send email notifications, you must first configure the **Email server settings**.
 
 1. On the ATA Center server, click the **Microsoft Advanced Threat Analytics Management** icon on the desktop.
 
-2. Enter your user name and password and click **Log in**.
+1. Enter your user name and password and click **Log in**.
 
-3. Select the settings option on the toolbar and select **Configuration**.
+1. Select the settings option on the toolbar and select **Configuration**.
 
-   ![ATA configuration settings icon](media/ATA-config-icon.png)
+    ![ATA configuration settings icon](media/ATA-config-icon.png)
 
-4. In the **notifications** section, under **Mail server**, enter the following information:
+1. In the **notifications** section, under **Mail server**, enter the following information:
 
 
    |              Field              |                                                                                                 Description                                                                                                  |               Value                |
@@ -49,30 +49,30 @@ ATA can notify you when it detects a suspicious activity. For ATA to be able to 
    |         Authentication          | Enable if your SMTP server requires authentication. **Note:** If you enable authentication, you must provide a user name and password of an email account that has permission to connect to the SMTP server. |        Default is disabled         |
    |      Send from (required)       |                                                                        Enter an email address from whom the email will be sent from.                                                                         | For example:<br />ATA@contoso.com  |
 
-   ![ATA email server settings image](media/ata-email-server.png)
+    ![ATA email server settings image](media/ata-email-server.png)
 
 ## Provide ATA with your Syslog server settings
 ATA can notify you when it detects a suspicious activity by sending the notification to your Syslog server. If you enable Syslog notifications, you can set the following for them.
 
 1. Before configuring Syslog notifications, work with your SIEM admin to find out the following information:
 
-   -   FQDN or IP address of the SIEM server
+   - FQDN or IP address of the SIEM server
 
-   -   Port on which the SIEM server is listening
+   - Port on which the SIEM server is listening
 
-   -   What transport to use: UDP, TCP, or TLS (Secured Syslog)
+   - What transport to use: UDP, TCP, or TLS (Secured Syslog)
 
-   -   Format in which to send the data RFC 3164 or 5424
+   - Format in which to send the data RFC 3164 or 5424
 
-2. On the ATA Center server, click the **Microsoft Advanced Threat Analytics Management** icon on the desktop.
+1. On the ATA Center server, click the **Microsoft Advanced Threat Analytics Management** icon on the desktop.
 
-3. Enter your user name and password and click **Log in**.
+1. Enter your user name and password and click **Log in**.
 
-4. Select the settings option on the toolbar and select **Configuration**.
+1. Select the settings option on the toolbar and select **Configuration**.
 
-   ![ATA configuration settings icon](media/ATA-config-icon.png)
+    ![ATA configuration settings icon](media/ATA-config-icon.png)
 
-5. Under Notifications section, Select **Syslog server** and enter the following information:
+1. Under Notifications section, Select **Syslog server** and enter the following information:
 
    |Field|Description|
    |---------|---------------|
@@ -80,7 +80,7 @@ ATA can notify you when it detects a suspicious activity by sending the notifica
    |Transport|Can be UDP, TCP, or TLS (Secured Syslog)|
    |Format|This is the format that ATA uses to send events to the SIEM server - either RFC 5424 or RFC 3164.|
 
-   ![ATA Syslog server settings image](media/ata-syslog-server-settings.png)
+    ![ATA Syslog server settings image](media/ata-syslog-server-settings.png)
 
 
 

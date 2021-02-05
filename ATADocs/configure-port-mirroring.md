@@ -4,9 +4,9 @@
 title: Configure Port Mirroring when deploying Advanced Threat Analytics
 description: Describes port mirroring options and how to configure them for ATA
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -27,7 +27,7 @@ ms.suite: ems
 
 # Configure Port Mirroring
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 > [!NOTE] 
 > This article is relevant only if you deploy ATA Gateways instead of ATA Lightweight Gateways. To determine if you need to use ATA Gateways, see [Choosing the right gateways for your deployment](ata-capacity-planning.md#choosing-the-right-gateway-type-for-your-deployment).
@@ -67,12 +67,12 @@ Your domain controllers and ATA Gateways can be either physical or virtual. The 
 
 **If you are working with virtualization clusters:**
 
--   For each domain controller running on the virtualization cluster in a virtual machine with the ATA Gateway,  configure affinity between the domain controller and the ATA Gateway. This way when the domain controller moves to another host in the cluster the ATA Gateway follows it. This works well when there are a few domain controllers.
+- For each domain controller running on the virtualization cluster in a virtual machine with the ATA Gateway,  configure affinity between the domain controller and the ATA Gateway. This way when the domain controller moves to another host in the cluster the ATA Gateway follows it. This works well when there are a few domain controllers.
 
 > [!NOTE]
 > If your environment supports Virtual to Virtual on different hosts (RSPAN) you do not need to worry about affinity.
 
--   To make sure the ATA Gateways are properly sized to handle monitoring all of the DCs by themselves, try this option: Install a virtual machine on each virtualization host and install an ATA Gateway on each host. Configure each ATA Gateway to monitor all of the domain controllers  that run on the cluster. This way, any host the domain controllers run on is monitored.
+- To make sure the ATA Gateways are properly sized to handle monitoring all of the DCs by themselves, try this option: Install a virtual machine on each virtualization host and install an ATA Gateway on each host. Configure each ATA Gateway to monitor all of the domain controllers  that run on the cluster. This way, any host the domain controllers run on is monitored.
 
 After configuring port mirroring, validate that port mirroring is working before installing the ATA Gateway.
 

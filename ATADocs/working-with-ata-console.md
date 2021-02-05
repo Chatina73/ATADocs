@@ -4,9 +4,9 @@
 title: Understanding the Advanced Threat Analytics console
 description: Describes how to log into the ATA console and the components of the console
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -28,7 +28,7 @@ ms.suite: ems
 # Working with the ATA Console
 
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 Use the ATA console to monitor and respond to suspicious activity detected by ATA.
 
@@ -50,12 +50,12 @@ For more information about role-based access control (RBAC) in ATA, see [Working
    >[!NOTE]
    > You can also open a browser from either the ATA Center or the ATA Gateway and browse to the IP address you configured in the ATA Center installation for the ATA Console.    
 
-2. If the computer on which the ATA Center is installed and the computer from which you are trying to access the ATA Console are both domain joined, ATA supports single sign-on integrated with Windows authentication - if you've already logged on to your computer, ATA uses that token to log you into the ATA Console. You can also log in using a smartcard. Your permissions in ATA correspond with your [administrator role](ata-role-groups.md).
+1. If the computer on which the ATA Center is installed and the computer from which you are trying to access the ATA Console are both domain joined, ATA supports single sign-on integrated with Windows authentication - if you've already logged on to your computer, ATA uses that token to log you into the ATA Console. You can also log in using a smartcard. Your permissions in ATA correspond with your [administrator role](ata-role-groups.md).
 
    > [!NOTE]
    > Make sure to log on to the computer from which you want to access the ATA Console using your ATA admin username and password. Alternatively, you can run your browser as a different user or log out of Windows and log on with your ATA admin user. To prompt the ATA Console to ask for credentials, access the console using an IP address and you are prompted to enter credentials.
 
-3. To log in using SSO, make sure the ATA console site is defined as a local intranet site in your browser and that you access it using a shortname or a localhost.
+1. To log in using SSO, make sure the ATA console site is defined as a local intranet site in your browser and that you access it using a shortname or a localhost.
 
 > [!NOTE]
 > In addition to logging each suspicious activity and health alert, every configuration change you make in the ATA Console is audited in the Windows Event Log on the ATA Center machine, under **Applications and services log** and then **Microsoft ATA**. Each login to the ATA console is audited as well.<br></br>  Configuration affecting the ATA Gateway is also logged in the Windows Event Log of the ATA Gateway machine. 
@@ -135,15 +135,15 @@ If you hover your mouse over an entity, anywhere in the console where there is a
 
 ![ATA mini profile image](media/ATA-mini-profile.jpg)
 
--   Name
+- Name
 
--   Picture
+- Picture
 
--   Email
+- Email
 
--   Telephone
+- Telephone
 
--   Number of suspicious activities by severity
+- Number of suspicious activities by severity
 
 
 

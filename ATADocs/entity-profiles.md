@@ -4,9 +4,9 @@
 title: Working with entity profiles in the Advanced Threat Analytics console
 description: Describes how to investigate entities from the user profiles screen in the ATA console
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/25/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -28,7 +28,7 @@ ms.suite: ems
 # Investigating entity profiles
 
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 The entity profile provides you with a dashboard designed for full deep-dive investigation of users, computers, devices and the resources they have access to and their history. The profile page takes advantage of the new ATA logical activity translator which can look at a group of activities occurring (aggregated up to a minute) and group them into a single logical activity to give you a better understanding of the actual activities of your users.
 
@@ -55,9 +55,9 @@ At the top, you can view the summary tiles that give you a quick overview of wha
 
 For computers you can see:
 - How many open suspicious activities there are for the machine
--  How many users logged into the machine
+- How many users logged into the machine
 - How many resources the computer accessed
--  How many locations VPN was accessed from on the computer
+- How many locations VPN was accessed from on the computer
 - A list of which IP addresses the computer has used
   
   ![entity menu computer](media/entity-computer.png)

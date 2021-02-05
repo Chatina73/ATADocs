@@ -4,9 +4,9 @@
 title: What threats does Advanced Threat Analytics detect?
 description: Lists the threats that Advanced Threat Analytics detects 
 keywords:
-author: rkarlin
-ms.author: rkarlin
-manager: rkarlin
+author: shsagir
+ms.author: shsagir
+manager: shsagir
 ms.date: 3/21/2018
 ms.topic: conceptual
 ms.prod: advanced-threat-analytics
@@ -28,7 +28,7 @@ ms.suite: ems
 # What threats does ATA look for?
 
 
-*Applies to: Advanced Threat Analytics version 1.9*
+[!INCLUDE [Banner for top of topics](includes/banner.md)]
 
 ATA provides detection for the following various phases of an advanced attack: reconnaissance, credential compromise, lateral movement, privilege escalation, domain dominance, and others. These detections are aimed at detecting advanced attacks and insider threats before they cause damage to your organization.
 The detection of each phase results in several suspicious activities relevant for the phase in question, where each suspicious activity correlates to different flavors of possible attacks.
@@ -42,9 +42,9 @@ For more information, see [Working with suspicious activities](working-with-susp
 
 ## What's next?
 
--   For more information about how ATA fits into your network: [ATA architecture](ata-architecture.md)
+- For more information about how ATA fits into your network: [ATA architecture](ata-architecture.md)
 
--   To get started deploying ATA: [Install ATA](install-ata-step1.md)
+- To get started deploying ATA: [Install ATA](install-ata-step1.md)
 
 
 ## See Also

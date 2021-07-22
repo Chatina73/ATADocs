@@ -27,7 +27,7 @@ The following is a description of the risk posed by different delegation types:
 
 1. Use the report table to discover which of your non-domain controller entities are configured for **unsecure Kerberos delegation**.
 
-    ![Unsecure Kerberos delegation security assessment](media/cas-isp-kerberos-delegation-2.png)
+    ![Unsecure Kerberos delegation security assessment.](media/cas-isp-kerberos-delegation-2.png)
 1. Take appropriate action on those at-risk users, such as removing their unconstrained attribute or changing it to a more secure constrained delegation.
 
 > [!NOTE]
@@ -45,18 +45,18 @@ Either disable delegation or use one of the following Kerberos constrained deleg
 
     1. Select **Trust this computer for delegation to specified services only**.
 
-        ![Unconstrained Kerberos delegation remediation](media/cas-isp-unconstrained-kerberos-1.png)
+        ![Unconstrained Kerberos delegation remediation.](media/cas-isp-unconstrained-kerberos-1.png)
 
     2. Specify the **Services to which this account can present delegated credentials**.
 
 - **Resource-based constrained delegation:** Restricts which entities can impersonate this account.  
-Resource-based KCD is configured using PowerShell. You use the [Set-ADComputer](/powershell/module/addsadministration/set-adcomputer?view=win10-ps&preserve-view=true) or [Set-ADUser](/powershell/module/addsadministration/set-aduser?view=win10-ps&preserve-view=true) cmdlets, depending on whether the impersonating account is a computer account or a user account / service account.
+Resource-based KCD is configured using PowerShell. You use the [Set-ADComputer](/powershell/module/activedirectory/set-adcomputer) or [Set-ADUser](/powershell/module/activedirectory/set-aduser) cmdlets, depending on whether the impersonating account is a computer account or a user account / service account.
 
 ### Constrained delegation
 
 Review the sensitive users listed in the recommendations and remove them from the services to which the affected account can present delegated credentials.
 
-![Constrained Kerberos delegation remediation](media/cas-isp-unconstrained-kerberos-2.png)
+![Constrained Kerberos delegation remediation.](media/cas-isp-unconstrained-kerberos-2.png)
 
 ### Resource-based constrained delegation (RBCD)
 
@@ -65,4 +65,4 @@ Review the sensitive users listed in the recommendations and remove them from th
 ## Next steps
 
 - [[!INCLUDE [Product short](includes/product-short.md)] activities filtering in Cloud App Security](activities-filtering-mcas.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

@@ -7,13 +7,16 @@ ms.topic: how-to
 
 # Manage sensitive or honeytoken accounts
 
+> [!NOTE]
+> The experience described in this page can also be accessed at <https://security.microsoft.com> as part of Microsoft 365 Defender. The supporting documents for the new experience can be found [here](/microsoft-365/security/defender-identity/entity-tags). For more information about Microsoft Defender for Identity and when other features will be available in Microsoft 365 Defender, see [Microsoft Defender for Identity in Microsoft 365 Defender](defender-for-identity-in-microsoft-365-defender.md).
+
 This article explains how to apply entity tags to sensitive accounts. This is important because some [!INCLUDE [Short long](includes/product-short.md)] detections, such as sensitive group modification detection and lateral movement path rely on an entity's sensitivity status.
 
 [!INCLUDE [Product short](includes/product-short.md)] also enables the configuration of honeytoken accounts, which are used as traps for malicious actors - any authentication associated with these honeytoken accounts (normally dormant), triggers an alert.
 
 ## Sensitive entities
 
-The following list of groups are considered **Sensitive** by [!INCLUDE [Short long](includes/product-short.md)]. Any entity that is a member of one of these Azure Active Directory groups is considered sensitive:
+The following list of groups are considered **Sensitive** by [!INCLUDE [Short long](includes/product-short.md)]. Any entity that is a member of one of these Azure Active Directory groups (including nested groups and their members) is considered sensitive:
 
 - Administrators
 - Power Users
@@ -53,11 +56,11 @@ To tag entities, do the following:
 
 1. In the [!INCLUDE [Product short](includes/product-short.md)] portal, select **Configuration**.
 
-    ![[!INCLUDE [Product short](includes/product-short.md)] configuration settings](media/config-menu.png)
+    ![[!INCLUDE [Product short.](includes/product-short.md)] configuration settings](media/config-menu.png)
 
 1. Under **Detection**, select **Entity tags**.
 
-    ![[!INCLUDE [Product short](includes/product-short.md)] entity tags](media/entity-tags.png)
+    ![[!INCLUDE [Product short.](includes/product-short.md)] entity tags](media/entity-tags.png)
 
 1. For each account that you want to configure, do the following:
     1. Under **Honeytoken accounts** or **Sensitive**, enter the account name.
@@ -66,11 +69,11 @@ To tag entities, do the following:
     > [!TIP]
     > The sensitive or honeytoken account field is searchable and will autofill with entities in your network.
 
-    ![[!INCLUDE [Product short](includes/product-short.md)] sensitive account sample](media/sensitive-account-sample.png)
+    ![[!INCLUDE [Product short.](includes/product-short.md)] sensitive account sample](media/sensitive-account-sample.png)
 
 1. Click **Save**.
 
 ## See also
 
 - [Working with suspicious activities](working-with-suspicious-activities.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

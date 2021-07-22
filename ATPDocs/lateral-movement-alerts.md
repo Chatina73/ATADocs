@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Identity lateral movement security alerts
 description: This article explains the Microsoft Defender for Identity alerts issued when attacks typically part of lateral movement phase efforts are detected against your organization.
-ms.date: 10/26/2020
+ms.date: 07/13/2021
 ms.topic: tutorial
 ---
 
@@ -21,6 +21,7 @@ The following security alerts help you identify and remediate **Lateral Movement
 
 > [!div class="checklist"]
 >
+> - Suspected exploitation attempt on Windows Print Spooler service (external ID 2415)
 > - Remote code execution over DNS (external ID 2036)
 > - Suspected identity theft (pass-the-hash) (external ID 2017)
 > - Suspected identity theft (pass-the-ticket) (external ID 2018)
@@ -30,7 +31,46 @@ The following security alerts help you identify and remediate **Lateral Movement
 > - Suspected rogue Kerberos certificate usage (external ID 2047)
 > - Suspected SMB packet manipulation (CVE-2020-0796 exploitation) - (preview) (external ID 2406)
 
+
 <!-- * Suspected overpass-the-hash attack (encryption downgrade) (external ID 2008)-->
+
+## Suspected exploitation attempt on Windows Print Spooler service (external ID 2415)
+
+**Description**
+
+Adversaries might exploit the Windows Print Spooler service to perform privileged file operations in an improper manner. An attacker who has (or obtains) the ability to execute code on the target, and who successfully exploits the vulnerability, could run arbitrary code with SYSTEM privileges on a target system. If run against a domain controller, the attack would allow a compromised non-administrator account to perform actions against a domain controller as SYSTEM.
+
+This functionally allows any attacker who enters the network to instantly elevate privileges to Domain Administrator, steal all domain credentials, and distribute further malware as a Domain Admin.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008) |
+|---------|---------|
+|MITRE attack technique    |  [Exploitation of Remote Services (T1210)](https://attack.mitre.org/techniques/T1210/)       |
+|MITRE attack sub-technique |  N/A       |
+
+**Learning period**
+
+Not applicable.
+
+**TP, B-TP or FP**
+1. Determine whether the Print Spooler service is frequently used over the network to install printer drivers on domain controllers. This should rarely happen.
+2. Check if the source computer is running an attack tool such as Mimikatz or Impacket.
+3. If the answers to these questions is yes, it's a true positive. Follow the instructions in the next section to understand the scope of the breach.
+
+**Understand the scope of the breach**
+1. Investigate the source computer using [these instructions](investigate-a-computer.md).
+2. Investigate the target domain controller, and identify activities that occurred after the attack.
+
+**Suggested remediation**
+
+1. Contain the source computer.
+    - Find the tool that performed the attack and remove it.
+    - Look for users who were logged on around the same time that the activity occurred. These users might also be compromised. If you've configured the relevant high-risk user policies in Azure Active Directory Identity Protection, you can use the *Confirm user compromised* action in the Microsoft Cloud App Security portal.
+2. Due to the risk of the domain controller being compromised, install the security updates for [CVE-2021-3452](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527) on Windows domain controllers, before installing on member servers and workstations.
+3. You can use the Defender for Identity built-in security assessment that tracks the availability of Print spooler services on domain controllers. [Learn more](cas-isp-print-spooler.md).
+
+ 
 
 ## Remote code execution over DNS (external ID 2036)
 
@@ -39,6 +79,14 @@ The following security alerts help you identify and remediate **Lateral Movement
 12/11/2018 Microsoft published [CVE-2018-8626](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8626), announcing that a newly discovered remote code execution vulnerability exists in Windows Domain Name System (DNS) servers. In this vulnerability, servers fail to properly handle requests. An attacker who successfully exploits the vulnerability can run arbitrary code in the context of the Local System Account. Windows servers currently configured as DNS servers are at risk from this vulnerability.
 
 In this detection, a [!INCLUDE [Product short](includes/product-short.md)] security alert is triggered when DNS queries suspected of exploiting the CVE-2018-8626 security vulnerability are made against a domain controller in the network.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008) |
+|---------|---------|
+|Secondary MITRE tactic    |  [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004)       |
+|MITRE attack technique  |   [Exploitation for Privilege Escalation (T1068)](https://attack.mitre.org/techniques/T1068/), [Exploitation of Remote Services (T1210)](https://attack.mitre.org/techniques/T1210/)      |
+|MITRE attack sub-technique |  N/A       |
 
 **Learning period**
 
@@ -81,6 +129,13 @@ Not applicable
 
 Pass-the-Hash is a lateral movement technique in which attackers steal a user's NTLM hash from one computer and use it to gain access to another computer.
 
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008) |
+|---------|---------|
+|MITRE attack technique  | [Use Alternate Authentication Material (T1550)](https://attack.mitre.org/techniques/T1550/)       |
+|MITRE attack sub-technique | [Pass the Hash (T1550.002)](https://attack.mitre.org/techniques/T1550/002/)         |
+
 **Learning period**
 
 Not applicable
@@ -108,6 +163,13 @@ Not applicable
 **Description**
 
 Pass-the-Ticket is a lateral movement technique in which attackers steal a Kerberos ticket from one computer and use it to gain access to another computer by reusing the stolen ticket. In this detection, a Kerberos ticket is seen used on two (or more) different computers.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008) |
+|---------|---------|
+|MITRE attack technique  | [Use Alternate Authentication Material (T1550)](https://attack.mitre.org/techniques/T1550/)       |
+|MITRE attack sub-technique | [Pass the Ticket (T1550.003)](https://attack.mitre.org/techniques/T1550/002/)         |
 
 **Learning period**
 
@@ -158,6 +220,14 @@ Malicious actors that successfully exploit this vulnerability have the ability t
 
 In this detection, a [!INCLUDE [Product short](includes/product-short.md)] security alert is triggered when NTLM authentication requests suspected of exploiting security vulnerability identified in [CVE-2019-1040](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1040) are made against a domain controller in the network.
 
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)  |
+|---------|---------|
+|Secondary MITRE tactic    | [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004)     |
+|MITRE attack technique  | [Exploitation for Privilege Escalation (T1068)](https://attack.mitre.org/techniques/T1068/), [Exploitation of Remote Services (T1210)](https://attack.mitre.org/techniques/T1210/)        |
+|MITRE attack sub-technique |   N/A      |
+
 **Learning period**
 
 Not applicable
@@ -194,6 +264,14 @@ An Exchange Server can be configured to trigger NTLM authentication with the Exc
 Once the relay server receives the NTLM authentication, it provides a challenge that was originally created by the target server. The client responds to the challenge, preventing an attacker from taking the response, and using it to continue NTLM negotiation with the target domain controller.
 
 In this detection, an alert is triggered when [!INCLUDE [Product short](includes/product-short.md)] identify use of Exchange account credentials from a suspicious source.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)  |
+|---------|---------|
+|Secondary MITRE tactic    | [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004)     |
+|MITRE attack technique  | [Exploitation for Privilege Escalation (T1068)](https://attack.mitre.org/techniques/T1068/), [Exploitation of Remote Services (T1210)](https://attack.mitre.org/techniques/T1210/), [Man-in-the-Middle (T1557)](https://attack.mitre.org/techniques/T1557/)        |
+|MITRE attack sub-technique |   [LLMNR/NBT-NS Poisoning and SMB Relay (T1557.001)](https://attack.mitre.org/techniques/T1557/001/)     |
 
 **Learning period**
 
@@ -278,6 +356,13 @@ Some legitimate resources don't support strong encryption ciphers and may trigge
 
 Attackers use tools that implement various protocols such as Kerberos and SMB in non-standard ways. While Microsoft Windows accepts this type of network traffic without warnings, [!INCLUDE [Product short](includes/product-short.md)] is able to recognize potential malicious intent. The behavior is indicative of techniques such as over-pass-the-hash, Brute Force, and advanced ransomware exploits such as WannaCry, are used.
 
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)  |
+|---------|---------|
+|MITRE attack technique  |  [Exploitation of Remote Services (T1210)](https://attack.mitre.org/techniques/T1210/),[Use Alternate Authentication Material (T1550)](https://attack.mitre.org/techniques/T1550/)      |
+|MITRE attack sub-technique | [Pass the Has (T1550.002)](https://attack.mitre.org/techniques/T1550/002/), [Pass the Ticket (T1550.003)](https://attack.mitre.org/techniques/T1550/003/)        |
+
 **Learning period**
 
 Not applicable
@@ -313,6 +398,14 @@ Sometimes applications implement their own Kerberos stack, not in accordance wit
 
 Rogue certificate attack is a persistence technique used by attackers after gaining control over the organization. Attackers compromise the Certificate Authority (CA) server and generate certificates that can be used as backdoor accounts in future attacks.
 
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008) |
+|---------|---------|
+|Secondary MITRE tactic    | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003), [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004)       |
+|MITRE attack technique  |  N/A       |
+|MITRE attack sub-technique |  N/A       |
+
 **Learning period**
 
 Not applicable
@@ -343,6 +436,13 @@ Not applicable
 03/12/2020 Microsoft published [CVE-2020-0796](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-0796), announcing that a newly remote code execution vulnerability exists in the way that the Microsoft Server Message Block 3.1.1 (SMBv3) protocol handles certain requests. An attacker who successfully exploited the vulnerability could gain the ability to execute code on the target server or client. Unpatched Windows servers are at risk from this vulnerability.
 
 In this detection, a [!INCLUDE [Product short](includes/product-short.md)] security alert is triggered when SMBv3 packet suspected of exploiting the CVE-2020-0796 security vulnerability are made against a domain controller in the network.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)  |
+|---------|---------|
+|MITRE attack technique  |   [Exploitation of Remote Services (T1210)](https://attack.mitre.org/techniques/T1210/)      |
+|MITRE attack sub-technique |    N/A     |
 
 **Learning period**
 
@@ -383,4 +483,4 @@ Not applicable
 - [Compromised credential alerts](compromised-credentials-alerts.md)
 - [Domain dominance alerts](domain-dominance-alerts.md)
 - [Exfiltration alerts](exfiltration-alerts.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

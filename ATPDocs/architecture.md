@@ -11,7 +11,7 @@ ms.topic: overview
 
 [!INCLUDE [Product short](includes/product-short.md)] architecture:
 
-![[!INCLUDE [Product short](includes/product-short.md)] architecture topology diagram](media/architecture-topology.png)
+![[!INCLUDE [Product short.](includes/product-short.md)] architecture topology diagram](media/architecture-topology.png)
 
 This section describes how the flow of [!INCLUDE [Product short](includes/product-short.md)]'s network and event capturing works, and drills down to describe the functionality of the main components: the [!INCLUDE [Product short](includes/product-short.md)] portal, [!INCLUDE [Product short](includes/product-short.md)] sensor, and [!INCLUDE [Product short](includes/product-short.md)] cloud service.
 
@@ -76,13 +76,13 @@ If the monitoring process causes the [!INCLUDE [Product short](includes/product-
 
 ### Windows Events
 
-To enhance [!INCLUDE [Product short](includes/product-short.md)] detection coverage related to NTLM authentications, modifications to sensitive groups and creation of suspicious services, [!INCLUDE [Product short](includes/product-short.md)] needs to analyze the logs of the following Windows events: 4776,4732,4733,4728,4729,4756,4757,7045 and 8004. These events are read automatically by [!INCLUDE [Product short](includes/product-short.md)] sensors with correct [advanced audit policy settings](configure-windows-event-collection.md). To [make sure Windows Event 8004 is audited](configure-windows-event-collection.md#ntlm-authentication-using-windows-event-8004) as needed by the service, review your [NTLM audit settings](/archive/blogs/askds/ntlm-blocking-and-you-application-analysis-and-auditing-methodologies-in-windows-7).
+To enhance [!INCLUDE [Product short](includes/product-short.md)] detection coverage related to NTLM authentications, modifications to sensitive groups and creation of suspicious services, [!INCLUDE [Product short](includes/product-short.md)] needs to analyze the logs of the [Windows Events listed here](configure-windows-event-collection.md#relevant-windows-events). These events are read automatically by [!INCLUDE [Product short](includes/product-short.md)] sensors with correct [advanced audit policy settings](configure-windows-event-collection.md). To [make sure Windows Event 8004 is audited](configure-windows-event-collection.md#ntlm-authentication-using-windows-event-8004) as needed by the service, review your [NTLM audit settings](/archive/blogs/askds/ntlm-blocking-and-you-application-analysis-and-auditing-methodologies-in-windows-7).
 
 ## Next steps
 
 - [[!INCLUDE [Product short](includes/product-short.md)] prerequisites](prerequisites.md)
-- [[!INCLUDE [Product short](includes/product-short.md)] sizing tool](https://aka.ms/trisizingtool)
 - [[!INCLUDE [Product short](includes/product-short.md)] capacity planning](capacity-planning.md)
+- [[!INCLUDE [Product short](includes/product-short.md)] sizing tool](capacity-planning.md#use-the-sizing-tool)
 - [Configure event forwarding](configure-event-forwarding.md)
 - [Configuring Windows event forwarding](configure-event-forwarding.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

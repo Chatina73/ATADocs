@@ -7,6 +7,9 @@ ms.topic: quickstart
 
 # Quickstart: Download the Microsoft Defender for Identity sensor setup package
 
+> [!NOTE]
+> The experience described in this page can also be accessed at <https://security.microsoft.com> as part of Microsoft 365 Defender. The supporting documents for the new experience can be found [here](/microsoft-365/security/defender-identity/sensor-health#add-a-sensor). For more information about Microsoft Defender for Identity and when other features will be available in Microsoft 365 Defender, see [Microsoft Defender for Identity in Microsoft 365 Defender](defender-for-identity-in-microsoft-365-defender.md).
+
 In this quickstart, you'll download the [!INCLUDE [Product long](includes/product-long.md)] sensor setup package from the portal.
 
 ## Prerequisites
@@ -19,7 +22,7 @@ After configuring the domain connectivity settings, you can download the [!INCLU
 
 Click **Download** in the list of steps at the top of the page to go to the **Sensors** page.
 
-![[!INCLUDE [Product short](includes/product-short.md)] sensor configuration settings](media/sensor-config.png)
+![[!INCLUDE [Product short.](includes/product-short.md)] sensor configuration settings](media/sensor-config.png)
 
 To reach the sensor configuration screen later, select **Configuration**, and then under **System**, click **Sensors**.  
 
@@ -41,4 +44,4 @@ The zip file includes the following files:
 
 ## Join the Community
 
-Have more questions, or an interest in discussing [!INCLUDE [Product short](includes/product-short.md)] and related security with others? Join the [[!INCLUDE [Product short](includes/product-short.md)] Community](https://aka.ms/MDIcommunity) today!
+Have more questions, or an interest in discussing [!INCLUDE [Product short](includes/product-short.md)] and related security with others? Join the [[!INCLUDE [Product short](includes/product-short.md)] Community](<https://aka.ms/MDIcommunity>) today!

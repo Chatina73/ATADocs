@@ -9,6 +9,8 @@ items:
     href: architecture.md
   - name: Defender for Identity prerequisites
     href: prerequisites.md
+  - name: Defender for Identity in Microsoft 365 Defender
+    href: defender-for-identity-in-microsoft-365-defender.md
   - name: Defender for Identity for US Government
     href: us-govt-gcc-high.md
   - name: What's new in Defender for Identity
@@ -67,7 +69,7 @@ items:
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/defender-for-identity-security-baseline?toc=/defender-for-identity/toc.json
 - name: How-to guides
   items:
   - name: Defender for Identity using Microsoft Cloud App Security
@@ -126,8 +128,6 @@ items:
     href: activities-search.md
   - name: Manage sensitive or honeytoken accounts
     href: manage-sensitive-honeytoken-accounts.md
-  - name: Configure detection exclusions
-    href: configure-detection-exclusions.md
   - name: Monitor domain controllers
     href: sensor-monitoring.md
   - name: Change domain connectivity password

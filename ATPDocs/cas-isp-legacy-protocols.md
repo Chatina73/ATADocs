@@ -24,16 +24,18 @@ Attack Surface Reduction can be achieved by disabling support for insecure legac
 - LanMan (LM) / NTLMv1
 - Digest Authentication
 
-To retire the use of legacy protocols, your organization must first discover which internal entities and applications rely on them. The **Legacy protocols usage** assessment report table surfaces the top discovered entities using legacy protocols (for now, NTLMv1). Using the report, you can immediately review any top impacted entities and take action on them, stopping use of these protocols and eventually, disabling them altogether. To learn more about the dangers of using legacy protocols, see [Stop using LAN manager and NTLMv1!](/archive/blogs/miriamxyra/stop-using-lan-manager-and-ntlmv1) and [Drop The MIC 2 & Exploiting LMv2 Clients](https://www.preempt.com/blog/active-directory-ntlm-attacks/).
+To retire the use of legacy protocols, your organization must first discover which internal entities and applications rely on them. The **Legacy protocols usage** assessment report table surfaces the top discovered entities using legacy protocols (for now, NTLMv1). Using the report, you can immediately review any top impacted entities and take action on them, stopping use of these protocols and eventually, disabling them altogether. To learn more about the dangers of using legacy protocols, see [Stop using LAN manager and NTLMv1!](/archive/blogs/miriamxyra/stop-using-lan-manager-and-ntlmv1).
 
 ## How do I use this security assessment?
 
 1. Use the report table to discover which of your top discovered entities are using legacy protocols.
 
-    ![Prevent usage of legacy protocols](media/cas-isp-legacy-protocols-2.png)
+    ![Prevent usage of legacy protocols.](media/cas-isp-legacy-protocols-2.png)
 1. Take appropriate action on those entities to discover dependencies.
 1. Stop legacy protocol use and eventually, [disable the protocols completely](/archive/blogs/miriamxyra/stop-using-lan-manager-and-ntlmv1).
-1. [Drop the MIC 2 & stop using LMv2 Clients](https://www.preempt.com/blog/active-directory-ntlm-attacks/).
+
+    >[!IMPORTANT]
+    >[!INCLUDE [Product long](includes/product-long.md)] may not detect every instance of legacy protocols. So, as with any modifications to your environment, it's recommended to test any changes before pushing them into production. Disabling those protocols without testing might cause legacy apps to break.
 
 > [!NOTE]
 > This assessment is updated in near real time.
@@ -41,4 +43,4 @@ To retire the use of legacy protocols, your organization must first discover whi
 ## Next steps
 
 - [[!INCLUDE [Product short](includes/product-short.md)] activities filtering in Cloud App Security](activities-filtering-mcas.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

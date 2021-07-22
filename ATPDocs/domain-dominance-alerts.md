@@ -45,6 +45,13 @@ The following security alerts help you identify and remediate **Domain dominance
 The Data Protection API (DPAPI) is used by Windows to securely protect passwords saved by browsers, encrypted files, and other sensitive data. Domain controllers hold a backup master key that can be used to decrypt all secrets encrypted with DPAPI on domain-joined Windows machines. Attackers can use the master key to decrypt any secrets protected by DPAPI on all domain-joined machines.
 In this detection, a [!INCLUDE [Product short](includes/product-short.md)] alert is triggered when the DPAPI is used to retrieve the backup master key.
 
+**MITRE**
+
+|Primary MITRE tactic  | [Credential Access (TA0006)](https://attack.mitre.org/tactics/TA0006)  |
+|---------|---------|
+|MITRE attack technique  | [Credentials from Password Stores (T1555)](https://attack.mitre.org/techniques/T1555/)        |
+|MITRE attack sub-technique |  N/A     |
+
 **Learning period**
 
 Not applicable
@@ -79,6 +86,14 @@ Advanced security scanners may legitimately generate this type of activity again
 **Description**
 
 Attackers who compromise administrative credentials or use a zero-day exploit can execute remote commands on your domain controller or AD FS server. This can be used for gaining persistency, collecting information, denial of service (DOS) attacks or any other reason. [!INCLUDE [Product short](includes/product-short.md)] detects PSexec, Remote WMI, and PowerShell connections.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Execution (TA0002)](https://attack.mitre.org/tactics/TA0002)  |
+|---------|---------|
+|Secondary MITRE tactic    |  [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)       |
+|MITRE attack technique  | [Command and Scripting Interpreter (T1059)](https://attack.mitre.org/techniques/T1059/),[Remote Services (T1021)](https://attack.mitre.org/techniques/T1021/)         |
+|MITRE attack sub-technique |  [PowerShell (T1059.001)](https://attack.mitre.org/techniques/T1059/001/), [Windows Remote Management (T1021.006)](https://attack.mitre.org/techniques/T1021/006/)      |
 
 **Learning period**
 
@@ -132,6 +147,13 @@ In a DCShadow attack, RPC, and LDAP are used to:
 1. Perform replication (using the granted replication rights) over DRSUAPI and send changes to directory objects.
 
 In this [!INCLUDE [Product short](includes/product-short.md)] detection, a security alert is triggered when a machine in the network tries to register as a rogue domain controller.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Defense Evasion (TA0005)](https://attack.mitre.org/tactics/TA0005)  |
+|---------|---------|
+|MITRE attack technique  | [Rogue Domain Controller (T1207)](https://attack.mitre.org/techniques/T1207/)        |
+|MITRE attack sub-technique |   N/A      |
 
 **Learning period**
 
@@ -189,6 +211,13 @@ Validate the following permissions:
 
 Active Directory replication is the process by which changes that are made on one domain controller are synchronized with other domain controllers. Given necessary permissions, attackers can grant rights for their machine account, allowing them to impersonate a domain controller. Attackers strive to initiate a malicious replication request, allowing them to change Active Directory objects on a genuine domain controller, which can give the attackers persistence in the domain.
 In this detection, an alert is triggered when a suspicious replication request is generated against a genuine domain controller protected by [!INCLUDE [Product short](includes/product-short.md)]. The behavior is indicative of techniques used in domain controller shadow attacks.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Defense Evasion (TA0005)](https://attack.mitre.org/tactics/TA0005)  |
+|---------|---------|
+|MITRE attack technique  | [Rogue Domain Controller (T1207)](https://attack.mitre.org/techniques/T1207/)        |
+|MITRE attack sub-technique |   N/A      |
 
 **Learning period**
 
@@ -251,6 +280,14 @@ In this detection, an alert is triggered when a replication request is initiated
 > [!NOTE]
 > If you have domain controllers on which [!INCLUDE [Product short](includes/product-short.md)] sensors are not installed, those domain controllers are not covered by [!INCLUDE [Product short](includes/product-short.md)]. When deploying a new domain controller on an unregistered or unprotected domain controller, it may not immediately be identified by [!INCLUDE [Product short](includes/product-short.md)] as a domain controller. It is highly recommended to install the [!INCLUDE [Product short](includes/product-short.md)] sensor on every domain controller to get full coverage.
 
+**MITRE**
+
+|Primary MITRE tactic  | [Credential Access (TA0006)](https://attack.mitre.org/tactics/TA0006)  |
+|---------|---------|
+|Secondary MITRE tactic    | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003)      |
+|MITRE attack technique  | [OS Credential Dumping (T1003)](https://attack.mitre.org/techniques/T1003/)        |
+|MITRE attack sub-technique | [DCSync (T1003.006)](https://attack.mitre.org/techniques/T1003/006/)        |
+
 **Learning period**
 
 Not applicable
@@ -305,6 +342,14 @@ Encryption downgrade is a method of weakening Kerberos by downgrading the encryp
 
 In a Golden Ticket alert, the encryption method of the TGT field of TGS_REQ (service request) message from the source computer was detected as downgraded compared to the previously learned behavior. This is not based on a time anomaly (as in the other Golden Ticket detection). In addition, in the case of this alert, there was no Kerberos authentication request associated with the previous service request, detected by [!INCLUDE [Product short](includes/product-short.md)].
 
+**MITRE**
+
+|Primary MITRE tactic  | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003) |
+|---------|---------|
+|Secondary MITRE tactic    | [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004), [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)        |
+|MITRE attack technique  |  [Steal or Forge Kerberos Tickets (T1558)](https://attack.mitre.org/techniques/T1558/)       |
+|MITRE attack sub-technique |  [Golden Ticket(T1558.001)](https://attack.mitre.org/techniques/T1558/001/)       |
+
 **Learning period**
 
 This alert has a learning period of 5 days from the start of domain controller monitoring.
@@ -346,7 +391,7 @@ Applications might authenticate using a lower encryption cipher. Some are authen
     - Look for users logged on around the time of the activity, as they may also be compromised. Reset their passwords and enable MFA or, if you have configured the relevant high-risk user policies in Azure Active Directory Identity Protection, you can use the [**Confirm user compromised**](/cloud-app-security/accounts#governance-actions) action in the Cloud App Security portal.
     - If you have Microsoft Defender for Endpoint installed – use **klist.exe purge** to delete all the tickets of the specified logon session and prevent future usage of the tickets.
 1. Contain the resources that were accessed by this ticket.
-1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in [KRBTGT Account Password Reset Scripts now available for customers](https://cloudblogs.microsoft.com/microsoftsecure/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/), using the [Reset the KRBTGT account password/keys tool](https://gallery.technet.microsoft.com/Reset-the-krbtgt-account-581a9e51).
+1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in the [KRBTGT account article](/windows/security/identity-protection/access-control/active-directory-accounts#krbtgt-account).
     - Resetting the KRBTGT twice invalidates all Kerberos tickets in this domain. Invalidating all Kerberos tickets in the domain means **all** services will be broken and they will not work again until they are renewed or in some cases, the service is restarted.
     - **Plan carefully before performing the KRBTGT double reset. The KRBTGT double reset impacts all computers, servers, and users in the environment.**
 
@@ -389,7 +434,7 @@ Some Operating Systems or applications are known to modify the authorization dat
 1. Contain the source computer
     - Find the tool that preformed the attack and remove it.
     - Look for users logged on around the same time as the activity, as they may also be compromised. Reset their passwords and enable MFA or, if you have configured the relevant high-risk user policies in Azure Active Directory Identity Protection, you can use the [**Confirm user compromised**](/cloud-app-security/accounts#governance-actions) action in the Cloud App Security portal.
-1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in [KRBTGT Account Password Reset Scripts now available for customers](https://cloudblogs.microsoft.com/microsoftsecure/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/), using the [Reset the KRBTGT account password/keys tool](https://gallery.technet.microsoft.com/Reset-the-krbtgt-account-581a9e51).
+1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in the [KRBTGT account article](/windows/security/identity-protection/access-control/active-directory-accounts#krbtgt-account).
     - Resetting the KRBTGT twice invalidates all Kerberos tickets in this domain. Invalidating all Kerberos tickets in the domain means **all** services will be broken and they will not work again until they are renewed or in some cases, the service is restarted. Plan carefully before performing the KRBTGT double reset, because it impacts all computers, servers and users in the environment.
 1. Make sure all domain controllers with operating systems up to Windows Server 2012 R2 are installed with [KB3011780](https://www.microsoft.com/download/details.aspx?id=44978) and all member servers and domain controllers up to 2012 R2 are up-to-date with [KB2496930](https://support.microsoft.com/help/2496930/ms11-013-vulnerabilities-in-kerberos-could-allow-elevation-of-privileg). For more information, see [Silver PAC](/security-updates/SecurityBulletins/2011/ms11-013) and [Forged PAC](/security-updates/SecurityBulletins/2014/ms14-068).
 
@@ -400,6 +445,12 @@ Previous name: Kerberos golden ticket
 **Description**
 
 Attackers with domain admin rights can compromise the KRBTGT account. Using the KRBTGT account, they can create a Kerberos ticket granting ticket (TGT) that provides authorization to any resource and set the ticket expiration to any arbitrary time. This fake TGT is called a "Golden Ticket" and allows attackers to achieve network persistence. In this detection, an alert is triggered by a nonexistent account.
+
+|Primary MITRE tactic  | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003) |
+|---------|---------|
+|Secondary MITRE tactic    | [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004), [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)        |
+|MITRE attack technique  |  [Steal or Forge Kerberos Tickets (T1558)](https://attack.mitre.org/techniques/T1558/), [Exploitation for Privilege Escalation (T1068)](https://attack.mitre.org/techniques/T1068/), [Exploitation of Remote Services (T1210)](https://attack.mitre.org/techniques/T1210/)       |
+|MITRE attack sub-technique |  [Golden Ticket(T1558.001)](https://attack.mitre.org/techniques/T1558/001/)  
 
 **Learning period**
 
@@ -426,7 +477,7 @@ If the answer is **yes** to all of the previous questions, **Close** the alert, 
     - Look for users logged on around the same time as the activity, as they may also be compromised. Reset their passwords and enable MFA or, if you have configured the relevant high-risk user policies in Azure Active Directory Identity Protection, you can use the [**Confirm user compromised**](/cloud-app-security/accounts#governance-actions) action in the Cloud App Security portal.
     - If you have Microsoft Defender for Endpoint installed – use **klist.exe purge** to delete all the tickets of the specified logon session and prevent future usage of the tickets.
 1. Contain the resources that were accessed by this ticket.
-1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in [KRBTGT Account Password Reset Scripts now available for customers](https://cloudblogs.microsoft.com/microsoftsecure/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/), using the [Reset the KRBTGT account password/keys tool](https://gallery.technet.microsoft.com/Reset-the-krbtgt-account-581a9e51).
+1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in the [KRBTGT account article](/windows/security/identity-protection/access-control/active-directory-accounts#krbtgt-account).
     - Resetting the KRBTGT twice invalidates all Kerberos tickets in this domain. Invalidating all Kerberos tickets in the domain means **all** services will be broken and they will not work again until they are renewed or in some cases, the service is restarted. Plan carefully before performing the KRBTGT double reset, because it impacts all computers, servers and users in the environment.
 
 ## Suspected Golden Ticket usage (ticket anomaly) (external ID 2032)
@@ -434,6 +485,14 @@ If the answer is **yes** to all of the previous questions, **Close** the alert, 
 **Description**
 
 Attackers with domain admin rights can compromise the KRBTGT account. Using the KRBTGT account, they can create a Kerberos ticket granting ticket (TGT) that provides authorization to any resource and set the ticket expiration to any arbitrary time. This fake TGT is called a "Golden Ticket" and allows attackers to achieve network persistence. Forged Golden Tickets of this type have unique characteristics this detection is specifically designed to identify.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003) |
+|---------|---------|
+|Secondary MITRE tactic    | [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004), [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)        |
+|MITRE attack technique  |  [Steal or Forge Kerberos Tickets (T1558)](https://attack.mitre.org/techniques/T1558/)       |
+|MITRE attack sub-technique |  [Golden Ticket(T1558.001)](https://attack.mitre.org/techniques/T1558/001/)  
 
 **Learning period**
 
@@ -457,7 +516,7 @@ Federation services might generate tickets that will trigger this alert.
     - Look for users logged on around the same time as the activity, as they may also be compromised. Reset their passwords and enable MFA or, if you have configured the relevant high-risk user policies in Azure Active Directory Identity Protection, you can use the [**Confirm user compromised**](/cloud-app-security/accounts#governance-actions) action in the Cloud App Security portal.
     - If you have Microsoft Defender for Endpoint installed – use **klist.exe purge** to delete all the tickets of the specified logon session and prevent future usage of the tickets.
 1. Contain the resources that were accessed by this ticket.
-1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in [KRBTGT Account Password Reset Scripts now available for customers](https://cloudblogs.microsoft.com/microsoftsecure/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/), using the [Reset the KRBTGT account password/keys tool](https://gallery.technet.microsoft.com/Reset-the-krbtgt-account-581a9e51).
+1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidancein the [KRBTGT account article](/windows/security/identity-protection/access-control/active-directory-accounts#krbtgt-account).
     - Resetting the KRBTGT twice invalidates all Kerberos tickets in this domain. Invalidating all Kerberos tickets in the domain means **all** services are  broken and cannot work again until renewed or in some cases, the service is restarted.
 
     **Plan carefully before performing a KRBTGT double reset. The reset impacts all computers, servers, and users in the environment.**
@@ -467,6 +526,14 @@ Federation services might generate tickets that will trigger this alert.
 **Description**
 
 Attackers with domain admin rights can compromise the KRBTGT account. Using the KRBTGT account, they can create a Kerberos ticket granting ticket (TGT) that provides authorization to any resource. This fake TGT is called a "Golden Ticket" and allows attackers to achieve network persistence. In this detection, the alert is triggered by a golden ticket that was created by setting Resource Based Constrained Delegation (RBCD) permissions using the KRBTGT account for account (user\computer) with SPN.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003) |
+|---------|---------|
+|Secondary MITRE tactic    |  [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004)        |
+|MITRE attack technique  |  [Steal or Forge Kerberos Tickets (T1558)](https://attack.mitre.org/techniques/T1558/)       |
+|MITRE attack sub-technique |  [Golden Ticket(T1558.001)](https://attack.mitre.org/techniques/T1558/001/)  
 
 **Learning period**
 
@@ -495,7 +562,7 @@ If the answer to any of the previous questions is yes, Close the security alert 
 
 1. Follow the instructions in the [unsecure Kerberos delegation](cas-isp-unconstrained-kerberos.md) security assessment.
 1. Review the sensitive users listed in the alert and remove them from the resource.
-1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in [KRBTGT Account Password Reset Scripts now available for customers](https://cloudblogs.microsoft.com/microsoftsecure/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/), using the [Reset the KRBTGT account password/keys tool](https://gallery.technet.microsoft.com/Reset-the-krbtgt-account-581a9e51). Resetting the KRBTGT twice invalidates all Kerberos tickets in this domain so plan before doing so. Also, because creating a Golden Ticket requires domain admin rights, implement [Pass the hash](lateral-movement-alerts.md#suspected-identity-theft-pass-the-hash-external-id-2017) recommendations.
+1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in the [KRBTGT account article](/windows/security/identity-protection/access-control/active-directory-accounts#krbtgt-account). Resetting the KRBTGT twice invalidates all Kerberos tickets in this domain so plan before doing so. Also, because creating a Golden Ticket requires domain admin rights, implement [Pass the hash](lateral-movement-alerts.md#suspected-identity-theft-pass-the-hash-external-id-2017) recommendations.
 
 ## Suspected Golden Ticket usage (time anomaly) (external ID 2022)
 
@@ -504,6 +571,14 @@ Previous name: Kerberos golden ticket
 **Description**
 
 Attackers with domain admin rights can compromise the KRBTGT account. Using the KRBTGT account, they can create a Kerberos ticket granting ticket (TGT) that provides authorization to any resource and set the ticket expiration to any arbitrary time. This fake TGT is called a "Golden Ticket" and allows attackers to achieve network persistence. This alert is triggered when a Kerberos ticket granting ticket is used for more than the allowed time permitted, as specified in the Maximum lifetime for user ticket.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003) |
+|---------|---------|
+|Secondary MITRE tactic    | [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004), [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)        |
+|MITRE attack technique  |  [Steal or Forge Kerberos Tickets (T1558)](https://attack.mitre.org/techniques/T1558/)       |
+|MITRE attack sub-technique |  [Golden Ticket(T1558.001)](https://attack.mitre.org/techniques/T1558/001/)  
 
 **Learning period**
 
@@ -531,7 +606,7 @@ If the answer to the previous questions is **yes**, **Close** the security alert
     - Look for users logged on around the same time as the activity, as they may also be compromised. Reset their passwords and enable MFA or, if you have configured the relevant high-risk user policies in Azure Active Directory Identity Protection, you can use the [**Confirm user compromised**](/cloud-app-security/accounts#governance-actions) action in the Cloud App Security portal.
     - If you have Microsoft Defender for Endpoint installed – use **klist.exe purge** to delete all the tickets of the specified logon session and prevent future usage of the tickets.
 1. Contain the resources accessed by this ticket.
-1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in [KRBTGT Account Password Reset Scripts now available for customers](https://cloudblogs.microsoft.com/microsoftsecure/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/), using the [Reset the KRBTGT account password/keys tool](https://gallery.technet.microsoft.com/Reset-the-krbtgt-account-581a9e51).
+1. Change the Kerberos Ticket Granting Ticket (KRBTGT) password twice according to the guidance in the [KRBTGT account article](/windows/security/identity-protection/access-control/active-directory-accounts#krbtgt-account).
     - Resetting the KRBTGT twice invalidates all Kerberos tickets in this domain. Invalidating all Kerberos tickets in the domain means **all** services are broken, and won't work again until they are renewed or in some cases, the service is restarted.
 
     **Plan carefully before performing a KRBTGT double reset. The reset impacts all computers, servers, and users in the environment.**
@@ -546,10 +621,18 @@ Encryption downgrade is a method of weakening Kerberos using a downgraded encryp
 
 Skeleton Key is malware that runs on domain controllers and allows authentication to the domain with any account without knowing its password. This malware often uses weaker encryption algorithms to hash the user's passwords on the domain controller. In this alert, the learned behavior of previous KRB_ERR message encryption from domain controller to the account requesting a ticket, was downgraded.
 
+**MITRE**
+
+|Primary MITRE tactic  | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003)  |
+|---------|---------|
+|Secondary MITRE tactic    |  [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)       |
+|MITRE attack technique  |   [Exploitation of Remote Services (T1210)](https://attack.mitre.org/techniques/T1210/),[Modify Authentication Process (T1556)](https://attack.mitre.org/techniques/T1556/)      |
+|MITRE attack sub-technique |  [Domain Controller Authentication (T1556.001)](https://attack.mitre.org/techniques/T1556/001/)       |
+
 **Understand the scope of the breach**
 
 1. Investigate the [domain controller](investigate-a-computer.md).
-1. Check if Skeleton Key has affected your domain controllers by [using the scanner written by the [!INCLUDE [Product short](includes/product-short.md)] team](https://gallery.technet.microsoft.com/Aorato-Skeleton-Key-24e46b73).
+1. Check if Skeleton Key has affected your domain controllers.
 1. Investigate the [users](investigate-a-user.md) and [computers](investigate-a-computer.md) involved.
 
 **Suggested remediation and prevention steps**
@@ -568,6 +651,14 @@ Attackers add users to highly privileged groups. Adding users is done to gain ac
 For a definition of sensitive groups in [!INCLUDE [Product short](includes/product-short.md)], see [Working with the sensitive accounts](manage-sensitive-honeytoken-accounts.md).
 
 The detection relies on events audited on domain controllers. Make sure your domain controllers are [auditing the events needed](configure-windows-event-collection.md).
+
+**MITRE**
+
+|Primary MITRE tactic  | [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003) |
+|---------|---------|
+|Secondary MITRE tactic    | [Credential Access (TA0006)](https://attack.mitre.org/tactics/TA0006)        |
+|MITRE attack technique  |  [Account Manipulation (T1098)](https://attack.mitre.org/techniques/T1098/),[Domain Policy Modification (T1484)](https://attack.mitre.org/techniques/T1484/)      |
+|MITRE attack sub-technique | N/A        |
 
 **Learning period**
 
@@ -609,6 +700,14 @@ Legitimate group modifications that occur rarely and the system didn't learn as 
 **Description**
 
 A suspicious service has been created on a domain controller or AD FS server in your organization. This alert relies on event 7045 to identify this suspicious activity.
+
+**MITRE**
+
+|Primary MITRE tactic  | [Execution (TA0002)](https://attack.mitre.org/tactics/TA0002) |
+|---------|---------|
+|Secondary MITRE tactic    |   [Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003), [Privilege Escalation (TA0004)](https://attack.mitre.org/tactics/TA0004), [Defense Evasion (TA0005)](https://attack.mitre.org/tactics/TA0005), [Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008)      |
+|MITRE attack technique  | [Remote Services (T1021)](https://attack.mitre.org/techniques/T1021/), [Command and Scripting Interpreter (T1059)](https://attack.mitre.org/techniques/T1059/), [System Services (T1569)](https://attack.mitre.org/techniques/T1569/), [Create or Modify System Process (T1543)](https://attack.mitre.org/techniques/T1543/)      |
+|MITRE attack sub-technique |   [Service Execution (T1569.002)](https://attack.mitre.org/techniques/T1569/002/), [Windows Service (T1543.003)](https://attack.mitre.org/techniques/T1543/003/)      |
 
 **Learning period**
 
@@ -656,4 +755,4 @@ Some administrative tasks are legitimately performed against domain controllers 
 - [Compromised credential alerts](compromised-credentials-alerts.md)
 - [Lateral movement alerts](lateral-movement-alerts.md)
 - [Exfiltration alerts](exfiltration-alerts.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

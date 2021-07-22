@@ -30,7 +30,7 @@ To learn more about [!INCLUDE [Product short](includes/product-short.md)]:
 
 Use these resources to help you set up [!INCLUDE [Product short](includes/product-short.md)], connect to Active Directory, download the sensor package, set up event collection, and optionally integrate with your VPN, and set up honeytoken accounts and exclusions.
 
-- [Try [!INCLUDE [Product short](includes/product-short.md)] (part of EMS E5)](https://aka.ms/aatptrial)  The trial is valid for 90 days.
+- [Try [!INCLUDE [Product short](includes/product-short.md)] (part of EMS E5)](https://go.microsoft.com/fwlink/p/?LinkID=2077047)  The trial is valid for 90 days.
 - [[!INCLUDE [Product short](includes/product-short.md)] Set up](install-step1.md) Follow these steps to deploy [!INCLUDE [Product short](includes/product-short.md)] in your environment.
 - [Integrate [!INCLUDE [Product short](includes/product-short.md)] with Microsoft Defender for Endpoint](integrate-mde.md)
 
@@ -67,4 +67,4 @@ Channel 9: [Microsoft Security Channel 9 page](https://channel9.msdn.com/Shows/M
 ## See Also
 
 - [Working with sensitive accounts](manage-sensitive-honeytoken-accounts.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

@@ -31,7 +31,7 @@ sections:
 
       - question: How many Directory Service credentials does Defender for Identity support?
         answer: |
-          Defender for Identity currently supports adding up to 10 different Directory Service credentials to support Active Directory environments with untrusted forests. If you require more accounts, open a support ticket.
+          Defender for Identity currently supports adding up to 30 different Directory Service credentials to support Active Directory environments with untrusted forests. If you require more accounts, open a support ticket.
 
       - question: Does Defender for Identity only leverage traffic from Active Directory?
         answer: |
@@ -75,14 +75,14 @@ sections:
 
       - question: Does Defender for Identity need only a single license or does it require a license for every user I want to protect?
         answer: |
-          For information about Defender for Identity licensing requirements, see [Defender for Identity licensing guidance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#azure-advanced-threat-protection).
+          For information about Defender for Identity licensing requirements, see [Defender for Identity licensing guidance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#microsoft-defender-for-identity).
 
       - question: Is my data isolated from other customer data?
         answer: Yes, your data is isolated through access authentication and logical segregation based on customer identifiers. Each customer can only access data collected from their own organization and generic data that Microsoft provides.
 
       - question: Do I have the flexibility to select where to store my data?
         answer: |
-          No. When your Defender for Identity instance is created, it is stored automatically in the country data center closest to the geographical location of your AAD tenant. Defender for Identity data cannot be moved once your Defender for Identity instance is created to a different data center.
+          No. When your Defender for Identity instance is created, it is stored automatically in the country data center closest to the geographical location of your AAD tenant.  Once your Defender for Identity instance is created, Defender for Identity data cannot be moved to a different data center.
 
       - question: How does Microsoft prevent malicious insider activities and abuse of high privilege roles?
         answer: |
@@ -134,6 +134,37 @@ sections:
       - question: Can you see the overall health of the deployment?
         answer: |
           Yes, you can view the overall health of the deployment as well as specific issues related to configuration, connectivity etc., and you are alerted as they occur with Defender for Identity health alerts.
+
+  - name: WinPcap and Npcap drivers
+    questions: 
+
+      - question: What recommendations about WinPcap and Npcap drivers are changing?
+        answer: The Microsoft Defender for Identity team is currently recommending that all customers deploy the Npcap driver before deploying the sensor on a domain controller. This will ensure that Npcap driver will be used instead of the WinPcap driver. 
+
+      - question: Why are we moving away from WinPcap?
+        answer: WinPcap is no longer supported and since it’s no longer being developed, the driver cannot be optimized any longer for the Defender for Identity sensor. Additionally, if there is an issue in the future with the WinPcap driver, there are no options for a fix. 
+          
+      - question: Why Npcap?
+        answer: Npcap is supported, while WinPcap is no longer a supported product.  
+
+      - question: What version of Npcap is supported? 
+        answer: The recommended and officially supported version of Npcap is version 1.00. Other versions are not supported. 
+
+      - question: What additional benefits will we get by using Npcap? 
+        answer: The Defender for Identity team has been working closely with the Npcap team over the last months to ensure optimal performance of the sensor. The Npcap driver will provide better performance and stability over the WinPcap driver. 
+
+      - question: I have more than 5 domain controllers in my organization. Do I need to purchase an Npcap license if I’m using Npcap on these domain controllers? 
+        answer: |
+          No, Npcap has an exemption to the usual limit of 5 installs. You can install it on unlimited systems where it is only used with the Defender for Identity sensor.
+          
+          See the Npcap license agreement [here](https://github.com/nmap/Npcap/blob/master/LICENSE),  and search for Microsoft Defender for Identity. 
+          
+      - question: I would like to script the deployment of Npcap, do I need to purchase the OEM version? 
+        answer: No, you don't need to purchase the OEM version. Download the sensor installation package from the Defender for Identity console after “**XXX date**”, which includes the OEM version of Npcap.
+
+      - question: How should I deploy Npcap? 
+        answer: |
+          Follow the instructions in [Install the Npcap driver](install-step4.md#install-the-npcap-driver).
 
   - name: Operation
     questions:
@@ -195,4 +226,4 @@ additionalContent: |
   - [Configure event collection](configure-event-collection.md)
   - [Configuring Windows event forwarding](configure-event-forwarding.md)
   - [Troubleshooting](troubleshooting-known-issues.md)
-  - [Check out the Defender for Identity forum!](https://aka.ms/MDIcommunity)
+  - [Check out the Defender for Identity forum!](<https://aka.ms/MDIcommunity>)

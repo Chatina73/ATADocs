@@ -1,7 +1,7 @@
 ---
 title: What's new in Microsoft Defender for Identity
 description: This article is updated frequently to let you know what's new in the latest release of Microsoft Defender for Identity.
-ms.date: 03/14/2021
+ms.date: 07/18/2021
 ms.topic: overview
 ---
 
@@ -16,6 +16,86 @@ RSS feed: Get notified when this page is updated by copying and pasting the foll
 > [!IMPORTANT]
 >
 > Threat protection product names from Microsoft are changing. Read more about this and other updates [here](https://www.microsoft.com/security/blog/?p=91813). We'll be using the new names from release 2.129 onwards.
+
+## Defender for Identity release 2.155
+
+Released July 18, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.154
+
+Released July 11, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+- Version includes added improvements and detections for the print spooler exploitation known as PrintNightmare detection, to cover more attack scenarios.
+
+## Defender for Identity release 2.153
+
+Released July 4, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+- Version includes a new security alert: Suspected Windows Print Spooler service exploitation attempt (CVE-2021-34527 exploitation) (external ID 2415).
+
+  In this detection, Defender for Identity triggers a security alert whenever an attacker tries to exploit the Windows Print Spooler Service against the domain controller. This attack vector is associated with the print spooler exploitation, and is known as PrintNightmare. [Learn more](lateral-movement-alerts.md#suspected-exploitation-attempt-on-windows-print-spooler-service-external-id-2415) about this alert.
+
+## Defender for Identity release 2.152
+
+Released June 27, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.151
+
+Released June 20, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.150
+
+Released June 13, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.149
+
+Released May 31, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.148
+
+Released May 23, 2021
+
+- If you [configure and collect](configure-windows-event-collection.md) event ID 4662, Defender for Identity will report which user made the [Update Sequence Number (USN)](/powershell/module/activedirectory/get-adreplicationuptodatenessvectortable#description) change to various Active Directory object properties. For example, if an account password is changed, and event 4662 is enabled, the event will record who changed the password.
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.147
+
+Released May 9, 2021
+
+- Based on customer feedback, we're increasing the default number of allowed sensors from 200 to 350, and the Directory Services credentials from 10 to 30.
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.146
+
+Released May 2, 2021
+
+- Email notifications for both health issues and security alerts will now have the investigation URL for both Microsoft Defender for Identity and Microsoft 365 Defender.
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.145
+
+Released April 22, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
+
+## Defender for Identity release 2.144
+
+Released April 12, 2021
+
+- Version includes improvements and bug fixes for internal sensor infrastructure.
 
 ## Defender for Identity release 2.143
 
@@ -903,4 +983,4 @@ For details of each [!INCLUDE [Product short](includes/product-short.md)] releas
 - [Frequently asked questions](technical-faq.yml)
 - [[!INCLUDE [Product short](includes/product-short.md)] prerequisites](prerequisites.md)
 - [[!INCLUDE [Product short](includes/product-short.md)] capacity planning](capacity-planning.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

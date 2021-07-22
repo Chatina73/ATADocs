@@ -20,7 +20,7 @@ connection failed because connected host has failed to respond...
 
 **Resolution:**
 
-Make sure that communication is not blocked for localhost, TCP port 444. To learn more about [!INCLUDE [Product long](includes/product-long.md)] prerequisites, see [ports](prerequisites.md#ports).
+Make sure that communication isn't blocked for localhost, TCP port 444. To learn more about [!INCLUDE [Product long](includes/product-long.md)] prerequisites, see [ports](prerequisites.md#ports).
 
 ## Deployment log location
 
@@ -43,7 +43,7 @@ In some cases, when communicating via a proxy, during authentication it might re
 
 **Resolution:**
 
-Ensure that the sensor can browse to *.atp.azure.com through the configured proxy without authentication. For more information see, [Configure proxy to enable communication](configure-proxy.md).
+Ensure that the sensor can browse to *.atp.azure.com through the configured proxy without authentication. For more information, see [Configure proxy to enable communication](configure-proxy.md).
 
 ## Proxy authentication problem presents as a connection error
 
@@ -51,7 +51,7 @@ If during sensor installation you receive the following error: **The sensor fail
 
 **Cause:**
 
-The issue can be caused by a Transparent proxy configuration error on Server Core, such as the root certificates required by [!INCLUDE [Product short](includes/product-short.md)] are not current or missing.
+The issue can be caused by a Transparent proxy configuration error on Server Core, such as the root certificates required by [!INCLUDE [Product short](includes/product-short.md)] are missing or not current.
 
 **Resolution:**
 
@@ -106,9 +106,9 @@ NotAfter     : 11/9/2031 4:00:00 PM
 Extensions   : {System.Security.Cryptography.Oid, System.Security.Cryptography.Oid, System.Security.Cryptography.Oid, System.Security.Cryptography.Oid}
 ```
 
-If you do not see the expected output, use the following steps:
+If you don't see the expected output, use the following steps:
 
-1. Download the following certificates to the Server Core machine. For all customers download the [Baltimore CyberTrust root](https://cacert.omniroot.com/bc2025.crt) certificate.
+1. Download the following certificates to the Server Core machine. For all customers, download the [Baltimore CyberTrust root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) certificate.
 
     In addition:
 
@@ -128,9 +128,9 @@ If you do not see the expected output, use the following steps:
     Import-Certificate -FilePath "<PATH_TO_CERTIFICATE_FILE>\DigiCertGlobalRootCA.crt" -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-## Silent installation error when attempting to use Powershell
+## Silent installation error when attempting to use PowerShell
 
-If during silent sensor installation you attempt to use Powershell and receive the following error:
+If during silent sensor installation you attempt to use PowerShell and receive the following error:
 
 ```powershell
 "Azure ATP sensor Setup.exe" "/quiet" NetFrameworkCommandLineArguments="/q" Acce ... Unexpected token '"/quiet"' in expression or statement."
@@ -138,7 +138,7 @@ If during silent sensor installation you attempt to use Powershell and receive t
 
 **Cause:**
 
-Failure to include the ./ prefix required to install when using Powershell causes this error.
+Failure to include the ./ prefix required to install when using PowerShell causes this error.
 
 **Resolution:**
 
@@ -156,9 +156,9 @@ If you attempt to install the [!INCLUDE [Product short](includes/product-short.m
 
 1. Download the Npcap version 1.0 installer from  [https://nmap.org/npcap/](https://nmap.org/npcap/dist/npcap-1.00.exe).
     - Alternatively, request the OEM version of the Npcap driver (that supports silent installation) from the support team.
-    - Copies of Npcap do not count towards the five copy, five computer or fiver user licensing limitation if they are installed and used solely in conjunction with [!INCLUDE [Product short](includes/product-short.md)]. For more information, see [NPCAP licensing](https://github.com/nmap/npcap/blob/master/LICENSE).
+    - Copies of Npcap don't count towards the five copy, five computer, or five user licensing limitation if they're installed and used solely in conjunction with [!INCLUDE [Product short](includes/product-short.md)]. For more information, see [NPCAP licensing](https://github.com/nmap/npcap/blob/master/LICENSE).
 
-If you have not yet installed the sensor:
+If you haven't yet installed the sensor:
 
 1. Uninstall WinPcap, if it was installed.
 1. Install Npcap with the following options: loopback_support=no & winpcap_mode=yes.
@@ -175,13 +175,13 @@ If you already installed the sensor:
 
 ## Multi Processor Group mode
 
-For Windows Operating systems 2008R2 and 2012, [!INCLUDE [Product short](includes/product-short.md)] Sensor is not supported in a Multi Processor Group mode.
+For Windows Operating systems 2008R2 and 2012, [!INCLUDE [Product short](includes/product-short.md)] Sensor isn't supported in a Multi Processor Group mode.
 
 Suggested possible workarounds:
 
 - If hyper threading is on, turn it off. This may reduce the number of logical cores enough to avoid needing to run in **Multi Processor Group** mode.
 
-- If your machine has less than 64 logical cores and is running on a HP host, you may be able to change the **NUMA Group Size Optimization** BIOS setting from the default of **Clustered** to **Flat**.
+- If your machine has less than 64 logical cores and is running on an HP host, you may be able to change the **NUMA Group Size Optimization** BIOS setting from the default of **Clustered** to **Flat**.
 
 ## Microsoft Defender for Endpoint integration issue
 
@@ -195,22 +195,23 @@ To resolve the issue:
 
 On the Guest OS, set the following to **Disabled** in the virtual machine's NIC configuration: **IPv4 TSO Offload**.
 
-![VMware sensor issue](media/vm-sensor-issue.png)
+![VMware sensor issue.](media/vm-sensor-issue.png)
 
 Use the following command to check if Large Send Offload (LSO) is enabled or disabled:
 
 `Get-NetAdapterAdvancedProperty | Where-Object DisplayName -Match "^Large*"`
 
-![Check LSO status](media/missing-network-traffic-health-alert.png)
+![Check LSO status.](media/missing-network-traffic-health-alert.png)
 
 If LSO is enabled, use the following command to disable it:
 
 `Disable-NetAdapterLso -Name {name of adapter}`
 
-![Disable LSO status](media/disable-lso-vmware.png)
+![Disable LSO status.](media/disable-lso-vmware.png)
 
 > [!NOTE]
 >
+> - Depending on your configuration, these actions might cause a brief loss of network connectivity.
 > - You may need to restart your machine for these changes to take effect.
 > - These steps may vary depending on your VMWare version. Check VMWare documentation for information about how to disable LSO/TSO for your VMWare version.
 
@@ -233,11 +234,49 @@ The sensor failed to retrieve the designated gMSA account from the [!INCLUDE [Pr
 
 **Resolution:**
 
-Make sure that the gMSA account's credentials are correct and that the sensor has been granted permission to retrieve the account's credentials. While [!INCLUDE [Product short](includes/product-short.md)]  does not require the **Log on as a service** permission for gMSA accounts, this issue is often resolved by adding the permission to the account.
+Make sure that the gMSA account's credentials are correct and that the sensor has been granted permission to retrieve the account's credentials. While [!INCLUDE [Product short](includes/product-short.md)]  doesn't require the **Log on as a service** permission for gMSA accounts, this issue is often resolved by adding the permission to the account.
+
+## Sensor service fails to start
+
+**Sensor log entries:**
+
+Warn DirectoryServicesClient CreateLdapConnectionAsync failed to retrieve group managed service account password. [DomainControllerDnsName=DC1.CONTOSO.LOCAL Domain=contoso.local UserName=AATP_gMSA]
+
+**Cause:**
+
+The domain controller hasn't been given rights to access the password of the gSMA account.
+
+**Resolution:**
+
+Verify that the domain controller has been given rights to access the password. You should have a Security Group in Active Directory with the domain controller and standalone sensors included. If this doesn't exist, we recommend that you create one.
+
+You can use the following command to check if the machine or security group has been added to the parameter. Replace *AccountName* with the name you created.
+
+```powershell
+Get-ADServiceAccount AccountName -Properties PrincipalsAllowedToRetrieveManagedPassword
+```
+
+The results should look like this:
+
+![Powershell results.](media/retrieve-password-results.png)
+
+In this example, we can see that the domain controller *AATPDemo* has been added. If the domain controller or the security group hasn't been added, we can use the following command below to add it. Replace *Host1* with the name of the domain controller or the name of the security group.
+
+```powershell
+Set-ADServiceAccount gmsaAccountName -PrincipalsAllowedToRetrieveManagedPassword Host1
+```
+
+If the domain controller or security group is already added, but you're still seeing the error, you can try the following steps:
+
+- **Option 1**: Reboot the server to sync the recent changes
+- **Option 2**:
+    1. Stop **AATPSensor** and **AATPSensorUpdater**
+    1. Cache service account to server: `Install-ADServiceAccount AccountName`
+    1. Start **AATPSensor**
 
 ## Report downloads cannot contain more than 300,000 entries
 
-[!INCLUDE [Product short](includes/product-short.md)] does not support report downloads that contain more than 300,000 entries per report. Reports will render as incomplete if more than 300,000 entries are included.
+[!INCLUDE [Product short](includes/product-short.md)] doesn't support report downloads that contain more than 300,000 entries per report. Reports will render as incomplete if more than 300,000 entries are included.
 
 **Cause:**
 
@@ -249,7 +288,7 @@ No known resolution.
 
 ## Sensor fails to enumerate event logs
 
-If you observe a limited number, or lack of, security event alerts or logical activities within the [!INCLUDE [Product short](includes/product-short.md)] console but no health alerts are triggered. 
+If you observe a limited number, or lack of, security event alerts or logical activities within the [!INCLUDE [Product short](includes/product-short.md)] console but no health alerts are triggered.
 
 **Sensor log entries:**
 
@@ -274,4 +313,4 @@ Ensure that the Discretionary Access Control List includes the following entry:
 - [[!INCLUDE [Product short](includes/product-short.md)] capacity planning](capacity-planning.md)
 - [Configure event collection](configure-event-collection.md)
 - [Configuring Windows event forwarding](configure-event-forwarding.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

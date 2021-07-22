@@ -8,7 +8,7 @@ ms.topic: how-to
 # Integrate with Syslog
 
 > [!NOTE]
-> The [!INCLUDE [Product long](includes/product-long.md)] features explained on this page are also accessible using the new [portal](https://portal.cloudappsecurity.com).
+> The experience described in this page can also be accessed at <https://security.microsoft.com> as part of Microsoft 365 Defender. The supporting documents for the new experience can be found [here](/microsoft-365/security/defender-identity/notifications#syslog-notifications). For more information about Microsoft Defender for Identity and when other features will be available in Microsoft 365 Defender, see [Microsoft Defender for Identity in Microsoft 365 Defender](defender-for-identity-in-microsoft-365-defender.md).
 
 [!INCLUDE [Product long](includes/product-long.md)] can notify you when it detects suspicious activities by sending security and health alerts to your Syslog server through a nominated sensor.
 
@@ -17,7 +17,7 @@ Once you enable Syslog notifications, you can set the following:
 |Field|Description|
 |---------|---------------|
 |sensor|Select a designated sensor to be responsible for aggregating all the Syslog events and forwarding them to your SIEM server.|
-|Service endpoint|FQDN of the Syslog server and optionally change the port number (default 514)|
+|Service endpoint|IP address or DNS name of the Syslog server and optionally change the port number (default 514)|
 |Transport|Can be UDP, TCP, or TLS (Secured Syslog)|
 |Format|This is the format that [!INCLUDE [Product short](includes/product-short.md)] uses to send events to the SIEM server - either RFC 5424 or RFC 3164.|
 
@@ -43,7 +43,7 @@ To review or modify your Syslog settings.
 
 1. Click **Notifications**, and then, under **Syslog notifications** click **Configure** and enter the following information:
 
-    ![[!INCLUDE [Product short](includes/product-short.md)] Syslog server settings image](media/syslog.png)
+    ![[!INCLUDE [Product short.](includes/product-short.md)] Syslog server settings image](media/syslog.png)
 
 1. You can select which events to send to your Syslog server. Under **Syslog notifications**, specify which notifications should be sent to your Syslog server - new security alerts, updated security alerts, and new health issues.
 
@@ -53,4 +53,4 @@ To review or modify your Syslog settings.
 ## See Also
 
 - [Working with sensitive accounts](manage-sensitive-honeytoken-accounts.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)

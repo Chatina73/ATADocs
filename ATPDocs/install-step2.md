@@ -7,6 +7,9 @@ ms.topic: quickstart
 
 # Quickstart: Connect to your Active Directory Forest
 
+> [!NOTE]
+> The experience described in this page can also be accessed at <https://security.microsoft.com> as part of Microsoft 365 Defender. The supporting documents for the new experience can be found [here](/microsoft-365/security/defender-identity/#configure-directory-services-account). For more information about Microsoft Defender for Identity and when other features will be available in Microsoft 365 Defender, see [Microsoft Defender for Identity in Microsoft 365 Defender](defender-for-identity-in-microsoft-365-defender.md).
+
 In this quickstart, you'll connect [!INCLUDE [Product long](includes/product-long.md)] to Active Directory (AD) to retrieve data about users and computers. If you're connecting multiple forests, see the [Multi-forest support](multi-forest.md) article.
 
 ## Prerequisites
@@ -22,17 +25,18 @@ In this quickstart, you'll connect [!INCLUDE [Product long](includes/product-lon
     >
     > - For sensor machines running Windows Server 2012 and above, we recommend using a **gMSA** account for its improved security and automatic password management.
     > - If you have multiple sensors, some running Windows Server 2008 and others running Windows Server 2012 or above, in addition to the recommendation to use a **gMSA** account, you must also use at least one **standard** AD user account.
+    > - By default, Defender for Identity supports up to 30 credentials. If you want to add more credentials, contact Defender for Identity support.
 
 ### How to set up a gMSA account
 
-1. Create a [gMSA account](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_CreateGMSA).
+1. Create a [gMSA account](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_CreateGMSA). Make sure to check the [prerequisites](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_gMSA_Req) carefully.
 1. Create a new [security group containing all your domain controllers with sensors (running Windows Server 2012 or above)](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_AddMemberHosts) with permissions to retrieve the gMSA account's password. (Recommended)
 
 ## Provide a username and password to connect to your Active Directory Forest
 
 The first time you open the [!INCLUDE [Product short](includes/product-short.md)] portal, the following screen appears:
 
-![Welcome stage 1, Directory Services settings](media/directory-services.png)
+![Welcome stage 1, Directory Services settings.](media/directory-services.png)
 
 1. Enter the following information and click **Save**:
 
@@ -53,4 +57,4 @@ The first time you open the [!INCLUDE [Product short](includes/product-short.md)
 
 ## Join the Community
 
-Have more questions, or an interest in discussing [!INCLUDE [Product short](includes/product-short.md)] and related security with others? Join the [[!INCLUDE [Product short](includes/product-short.md)] Community](https://aka.ms/MDIcommunity) today!
+Have more questions, or an interest in discussing [!INCLUDE [Product short](includes/product-short.md)] and related security with others? Join the [[!INCLUDE [Product short](includes/product-short.md)] Community](<https://aka.ms/MDIcommunity>) today!

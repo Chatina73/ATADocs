@@ -8,7 +8,7 @@ ms.topic: how-to
 # Working with Security Alerts
 
 > [!NOTE]
-> The [!INCLUDE [Product long](includes/product-long.md)] features explained on this page are also accessible using the new [portal](https://portal.cloudappsecurity.com).
+> The experience described in this page can also be accessed at <https://security.microsoft.com> as part of Microsoft 365 Defender. The supporting documents for the new experience can be found [here](/microsoft-365/security/defender-identity/manage-security-alerts). For more information about Microsoft Defender for Identity and when other features will be available in Microsoft 365 Defender, see [Microsoft Defender for Identity in Microsoft 365 Defender](defender-for-identity-in-microsoft-365-defender.md).
 
 This article explains the basics of how to work with [!INCLUDE [Product long](includes/product-long.md)] security alerts.
 
@@ -22,7 +22,7 @@ Each security alert has the following information:
 
 - Entities involved, including users, computers, servers, domain controllers, and resources.
 
-- Times and time frame of the suspicious activities which initiated the security alert.
+- Times and time frame of the suspicious activities that initiated the security alert.
 - Severity of the alert: High, Medium, or Low.
 - Status: Open, closed, or suppressed.
 - Ability to:
@@ -34,7 +34,7 @@ Each security alert has the following information:
 > - When you hover your mouse over a user or computer, a mini entity profile is displayed. The mini-profile provides additional information about the entity and includes the number of security alerts that the entity is linked to.
 > - Clicking on an entity, takes you to the entity profile of the user or computer.
 
-![[!INCLUDE [Product short](includes/product-short.md)] security alerts timeline image](media/sa-timeline.png)
+![[!INCLUDE [Product short.](includes/product-short.md)] security alerts timeline image](media/sa-timeline.png)
 
 ## Security alert categories
 
@@ -52,7 +52,7 @@ The [!INCLUDE [Product short](includes/product-short.md)] research team constant
 
 These detections are tagged with a preview badge, to help you identify the new detections and know that they are new to the product. If you turn off preview detections, they will not be displayed in the [!INCLUDE [Product short](includes/product-short.md)] console - not in the timeline or in entity profiles - and new alerts won't be opened.
 
-![preview detection in timeline](media/preview-detection-in-timeline.png)
+![preview detection in timeline.](media/preview-detection-in-timeline.png)
 
 By default, preview detections are enabled in [!INCLUDE [Product short](includes/product-short.md)].
 
@@ -62,7 +62,7 @@ To disable preview detections:
 1. In the left menu, under **Preview**, click **Detections**.
 1. Use the slider to turn the preview detections on and off.
 
-![preview detections](media/preview-detections.png)
+![preview detections.](media/preview-detections.png)
 
 ## Filter security alerts list
 
@@ -91,7 +91,7 @@ To filter the security alert list:
 You can change the status of a security alert by clicking the current status of the security alert and selecting one of the following **Open**, **Suppressed**, **Closed**, or **Deleted**.
 To do this, click the three dots at the top right corner of a specific alert to reveal the list of available actions.
 
-![[!INCLUDE [Product short](includes/product-short.md)] Actions for security alerts](media/sa-actions.png)
+![[!INCLUDE [Product short.](includes/product-short.md)] Actions for security alerts](media/sa-actions.png)
 
 **Security alert status**
 
@@ -111,4 +111,8 @@ To do this, click the three dots at the top right corner of a specific alert to 
 ## See Also
 
 - [Working with the [!INCLUDE [Product short](includes/product-short.md)] portal](workspace-portal.md)
-- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](https://aka.ms/MDIcommunity)
+- [Check out the [!INCLUDE [Product short](includes/product-short.md)] forum!](<https://aka.ms/MDIcommunity>)
+
+## Learn more
+
+- Try our interactive guide: [Detect suspicious activities and potential attacks with Microsoft Defender for Identity](https://mslearn.cloudguides.com/guides/Detect%20suspicious%20activities%20and%20potential%20attacks%20with%20Microsoft%20Defender%20for%20Identity)

@@ -34,7 +34,7 @@ We recommend following the lab setup instructions as closely as possible. The cl
 
 Your complete lab setup should look as similar as possible to the following diagram:
 
-![[!INCLUDE [Product short](includes/product-short.md)] testing lab setup](media/playbook-setup-lab.png)
+![[!INCLUDE [Product short.](includes/product-short.md)] testing lab setup](media/playbook-setup-lab.png)
 
 ### Servers and computers
 
@@ -104,11 +104,11 @@ To allow the [!INCLUDE [Product short](includes/product-short.md)] Service to pe
 
 1. Find your SAM policy under: **Policies \> Windows Settings \> Security Settings \> Local Policies \> Security Options\> "Network access: Restrict clients allowed to make remote calls to SAM"**_
 
-    ![Modify Group Policy to allow [!INCLUDE [Product short](includes/product-short.md)] to use Lateral Movement path capabilities.](media/playbook-labsetup-localgrouppolicies3.png)
+    ![Modify Group Policy to allow [!INCLUDE [Product short.](includes/product-short.md)] to use Lateral Movement path capabilities.](media/playbook-labsetup-localgrouppolicies3.png)
 
 1. Add the [!INCLUDE [Product short](includes/product-short.md)] service account, AATPService, to the list of approved accounts able to perform this action on your modern Windows systems.
 
-    ![Add the service](media/samr-add-service.png)
+    ![Add the service.](media/samr-add-service.png)
 
 ### Add sensitive group to Defender for Identity
 
@@ -118,7 +118,7 @@ Adding the "Helpdesk" Security Group as a **Sensitive group** will enable you to
 
 1. Under **Detection** select **Entity tags**.
 
-    ![[!INCLUDE [Product short](includes/product-short.md)] entity tags](media/entity-tags.png)
+    ![[!INCLUDE [Product short.](includes/product-short.md)] entity tags](media/entity-tags.png)
 1. In the **Sensitive** section, type the name "Helpdesk" for **Sensitive groups** and then click **+** sign to add them.
     ![Tag the "Helpdesk" as a [!INCLUDE [Product short](includes/product-short.md)] sensitive group to enable  Lateral Movement Graphs and reports for this privileged group](media/playbook-labsetup-helpdesksensitivegroup.png)
 1. Click **Save**.
@@ -127,12 +127,12 @@ Adding the "Helpdesk" Security Group as a **Sensitive group** will enable you to
 
 At this point, you should have a base [!INCLUDE [Product short](includes/product-short.md)] lab. [!INCLUDE [Product short](includes/product-short.md)] should be ready to use and users are staged. Review the checklist to make sure that the base lab is complete.
 
-| Step  | Step | Action | Status |
+| Step  | Task | Action |
 |--|--|--|
 | 1 | [!INCLUDE [Product short](includes/product-short.md)] Sensor installed on ContosoDC (prerequisite step) | - [ ] |
 | 2 | Users and groups are created in Active Directory | - [ ] |
 | 3 | [!INCLUDE [Product short](includes/product-short.md)] service account privileges configured correctly for SAMR | - [ ] |
-| 4 | Helpdesk security group added as a **Sensitive group** in [!INCLUDE [Product short](includes/product-short.md)] | - [ ] |](includes/product-other.md)]| - [ ] |
+| 4 | Helpdesk security group added as a **Sensitive group** in [!INCLUDE [Product short](includes/product-short.md)] | - [ ] |
 
 ## Set up the lab workstations
 
@@ -153,7 +153,7 @@ Add-LocalGroupMember -Group "Administrators" -Member "Contoso\Helpdesk"
 
 Inspect the Administrators group on **VictimPC**, making sure it appears to have at least Helpdesk and JeffL as members:
 
-![Helpdesk nd JeffV should be in the Local Admin Group for VictimPC](media/playbook-labsetup-localgrouppolicies2.png)
+![Helpdesk nd JeffV should be in the Local Admin Group for VictimPC.](media/playbook-labsetup-localgrouppolicies2.png)
 
 <a name="helpdesk-simulation"></a>
 
@@ -182,7 +182,7 @@ Without turning off antivirus solutions first, you'll be unable to download some
 ### Stage common hacker tools
 
 > [!WARNING]
-> The following tools are presented for research purposes only. Microsoft does **not** own these tools and Microsoft cannot and does not guarantee or warranty their behavior. These tools should be run in a test lab environment **only**.
+> The following tools are presented for research purposes only. Microsoft does **not** own these tools and Microsoft cannot and does not guarantee or warranty their behavior. They are subject to change without notice. These tools should be run in a test lab environment **only**.
 
 To run the [!INCLUDE [Product short](includes/product-short.md)] Security Alert playbooks, the following tools are needed.
 
@@ -209,7 +209,7 @@ We thank the authors of these research tools for enabling the community to bette
     ```
 
 1. After running the script, **Helpdesk** is located in the local **Administrators** > **Members** list of **AdminPC**.
-![Helpdesk in the Local Admin Group for AdminPC](media/playbook-labsetup-localgrouppolicies1.png)
+![Helpdesk in the Local Admin Group for AdminPC.](media/playbook-labsetup-localgrouppolicies1.png)
 
 ### Simulate domain activities from AdminPC
 
